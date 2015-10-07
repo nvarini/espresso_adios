@@ -1,0 +1,81 @@
+c_bands.f90:  USE io_files,             ONLY : iunigk, iunhub, iunwfc, nwordwfc, nwordwfcU
+c_bands.f90:  if ( nks > 1 ) REWIND( iunigk )
+c_bands.f90:     IF ( nks > 1 ) READ( iunigk ) igk
+c_bands.f90:     ! ... Dirty restart trick: iunigk is sequential so it has to be read
+c_bands.f90:  USE io_files,             ONLY : iunigk, iunhub, iunwfc, nwordwfc, nwordwfcU
+c_bands.f90:  if ( nks > 1 ) REWIND( iunigk )
+c_bands.f90:     IF ( nks > 1 ) READ( iunigk ) igk
+c_bands.f90:     ! ... Dirty restart trick: iunigk is sequential so it has to be read
+close_files.f90:  USE io_files,      ONLY : prefix, iunwfc, iunigk, iunsat, &
+close_files.f90:  ! ... iunigk is kept open during the execution - close and remove
+close_files.f90:  INQUIRE( UNIT = iunigk, OPENED = opnd )
+close_files.f90:  IF ( opnd ) CLOSE( UNIT = iunigk, STATUS = 'DELETE' )
+compute_becsum.f90:  USE io_files,             ONLY : iunwfc, nwordwfc, iunigk
+compute_becsum.f90:  IF ( nks > 1 ) REWIND( iunigk )
+compute_becsum.f90:        READ( iunigk ) igk
+exx.f90:    USE io_files,             ONLY : nwordwfc, iunwfc, iunigk
+exx.f90:    IF ( nks > 1 ) REWIND( iunigk )
+exx.f90:          READ( iunigk ) igk
+exx.f90:    USE io_files,               ONLY : iunigk,iunwfc, nwordwfc
+exx.f90:    IF ( nks > 1 ) REWIND( iunigk )
+exx.f90:          READ( iunigk ) igk
+exx.f90:    USE io_files,                ONLY : iunigk,iunwfc, nwordwfc
+exx.f90:    IF ( nks > 1 ) REWIND( iunigk )
+exx.f90:          READ( iunigk ) igk
+exx.f90:    USE io_files,                ONLY : iunigk,iunwfc, nwordwfc
+exx.f90:    IF ( nks > 1 ) REWIND( iunigk )
+exx.f90:          READ( iunigk ) igk
+exx.f90:    USE io_files,             ONLY : iunigk,iunwfc, nwordwfc
+exx.f90:    IF ( nks > 1 ) rewind( iunigk )
+exx.f90:            read(iunigk) igk
+force_hub.f90:   USE io_files,             ONLY : iunigk, nwordwfc, iunwfc
+force_hub.f90:   IF (nks > 1) REWIND (iunigk)
+force_hub.f90:         READ (iunigk) igk
+force_us.f90:  USE io_files,             ONLY : iunwfc, nwordwfc, iunigk
+force_us.f90:  IF ( nks > 1 ) REWIND iunigk
+force_us.f90:        READ( iunigk ) igk
+hinit0.f90:  USE io_files,     ONLY : iunigk
+hinit0.f90:  REWIND( iunigk )
+hinit0.f90:     IF ( nks > 1 ) WRITE( iunigk ) igk
+new_ns.f90:  USE io_files,             ONLY : iunigk, nwordwfc, iunwfc, nwordwfcU, iunhub
+new_ns.f90:  IF (nks > 1) REWIND (iunigk)
+new_ns.f90:        READ (iunigk) igk
+new_ns.f90:  USE io_files,             ONLY : iunigk, nwordwfc, iunwfc, nwordwfcU, iunhub
+new_ns.f90:  IF (nks > 1) REWIND (iunigk)
+new_ns.f90:        READ (iunigk) igk
+new_occ.f90:  USE io_files,             ONLY : iunigk, nwordwfc, iunwfc, nwordatwfc, iunsat
+new_occ.f90:  IF (nks > 1) REWIND (iunigk)
+new_occ.f90:        READ (iunigk) igk
+openfil.f90:  USE io_files,         ONLY : prefix, iunpun, iunsat, iunigk,  &
+openfil.f90:  ! ... iunigk contains the number of PW and the indices igk
+openfil.f90:  CALL seqopn( iunigk, 'igk', 'UNFORMATTED', exst )
+orthoatwfc.f90:  USE io_files,   ONLY : iunhub, nwordwfcU, iunigk
+orthoatwfc.f90:  IF (nks > 1) REWIND (iunigk)
+orthoatwfc.f90:     IF (nks > 1) READ (iunigk) igk
+orthoatwfc.f90:  USE io_files,   ONLY : iunsat, nwordatwfc, iunigk
+orthoatwfc.f90:  IF (nks > 1) REWIND (iunigk)
+orthoatwfc.f90:     IF (nks > 1) READ (iunigk) igk
+pw_restart.f90:      USE io_files,             ONLY : nwordwfc, iunwfc, iunigk, psfile
+pw_restart.f90:      IF ( nks > 1 ) REWIND( iunigk )
+pw_restart.f90:         IF ( nks > 1 ) READ( iunigk ) igk
+stres_hub.f90:   USE io_files,             ONLY : iunigk, nwordwfc, iunwfc, &
+stres_hub.f90:   IF (nks > 1) REWIND (iunigk)
+stres_hub.f90:         READ (iunigk) igk
+stres_knl.f90:  USE io_files,             ONLY: iunwfc, nwordwfc, iunigk
+stres_knl.f90:  if (nks.gt.1) rewind (iunigk)
+stres_knl.f90:        read (iunigk) igk
+sum_band.f90:  USE io_files,             ONLY : iunwfc, nwordwfc, iunigk
+sum_band.f90:       IF ( nks > 1 ) REWIND( iunigk )
+sum_band.f90:             READ( iunigk ) igk
+sum_band.f90:       IF ( nks > 1 ) REWIND( iunigk )
+sum_band.f90:             READ( iunigk ) igk
+update_pot.f90:  USE io_files,             ONLY : nwordwfc, iunigk, iunwfc, iunoldwfc, &
+update_pot.f90:     IF ( nks > 1 ) REWIND( iunigk )
+update_pot.f90:           IF ( nks > 1 ) READ( iunigk ) igk
+wannier_clean.f90:  INQUIRE( UNIT = iunigk, OPENED = opnd )  
+wannier_clean.f90:  IF ( opnd ) CALL close_buffer( iunigk, 'delete' )
+wannier_init.f90:  INQUIRE( UNIT = iunigk, OPENED = opnd )
+wannier_init.f90:  IF(.NOT. opnd) CALL seqopn( iunigk, 'igk', 'UNFORMATTED', exst )
+wfcinit.f90:  USE io_files,             ONLY : nwordwfc, nwordwfcU, iunhub, iunwfc, iunigk
+wfcinit.f90:  IF ( nks > 1 ) REWIND( iunigk )
+wfcinit.f90:     IF ( nks > 1 ) READ( iunigk ) igk

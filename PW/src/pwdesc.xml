@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<adios-config host-language="Fortran">
+
+    <adios-group name="wfc">
+        <var name="npwx" path="" type="integer"/>
+        <var name="npw_g" path=""  type="integer"/>
+        <var name="off_npw" path="" type="integer"/>
+        <var name="nbnd" path="" type="integer"/>
+        <global-bounds dimensions="npw_g,nbnd" offsets="off_npw,0">
+         <var name="evc"  gwrite="evc"  type="double complex"  dimensions="npwx,nbnd"/>
+        </global-bounds>
+   </adios-group>
+
+    <method group="wfc"  method="MPI"/>
+
+    <buffer size-MB="20" allocate-time="now"/>
+
+
+
+    <adios-group name="oldwfc">
+        <var name="npwx" path="" type="integer"/>
+        <var name="npw_g" path=""  type="integer"/>
+        <var name="off_npw" path="" type="integer"/>
+        <var name="nbnd" path="" type="integer"/>
+        <global-bounds dimensions="npw_g,nbnd" offsets="off_npw,0">
+         <var name="evcold"  gwrite="evcold"  type="double complex"  dimensions="npwx,nbnd"/>
+        </global-bounds>
+   </adios-group>
+
+    <method group="oldwfc"  method="MPI"/>
+
+    <buffer size-MB="20" allocate-time="now"/>
+
+    <adios-group name="oldwfc2">
+        <var name="npwx" path="" type="integer"/>
+        <var name="npw_g" path=""  type="integer"/>
+        <var name="off_npw" path="" type="integer"/>
+        <var name="nbnd" path="" type="integer"/>
+        <global-bounds dimensions="npw_g,nbnd" offsets="off_npw,0">
+         <var name="aux"  gwrite="aux"  type="double complex"  dimensions="npwx,nbnd"/>
+        </global-bounds>
+   </adios-group>
+
+    <method group="oldwfc2"  method="MPI"/>
+
+    <buffer size-MB="20" allocate-time="now"/>
+
+
+
+
+</adios-config>
+

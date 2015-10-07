@@ -1,0 +1,1412 @@
+a2fmod.f90:      ! parallel case: only first node writes
+a2fmod.f90:         WRITE( iuna2Fsave, * ) nbnd, nkstot
+a2fmod.f90:         WRITE( iuna2Fsave, * ) et
+a2fmod.f90:         WRITE( iuna2Fsave, * ) ((xk(i,ik), i=1,3), ik=1,nkstot)
+a2fmod.f90:         WRITE( iuna2Fsave, * ) wk(1:nkstot)
+a2fmod.f90:         WRITE( iuna2Fsave, * ) nk1, nk2, nk3
+a2fmod.f90:         WRITE( iuna2Fsave, * ) nsym
+a2fmod.f90:            WRITE( iuna2Fsave, * )  ((s(i,j,ns),j=1,3),i=1,3) 
+a2fmod.f90:         WRITE( iuna2Fsave, * )  ((irt(ns,na),ns=1,nsym),na=1,nat)
+add_bfield.f90:     write (stdout,'(4x,a,F15.8)' ) " constraint energy (Ryd) = ", etcon
+add_bfield.f90:       write(stdout,'(5x," External magnetic field: ", 3f13.5)') &
+add_bfield.f90:       write(stdout,'(/,5x,"Constraint on the polar angle of the magnetization")')
+add_bfield.f90:       write(stdout,'(5x,"theta (target): ",F10.5,"     (",F10.5,")")') &
+add_bfield.f90:       write(stdout,'(5x,"E_constraint:  ",F15.9," (lambda:",F15.9,")")') etcon, lambda
+add_bfield.f90:       write(stdout,'(5x,"External magnetic field: ", 3F12.6)') bfield(1:npol)
+add_bfield.f90:       !write(stdout,'(5x,"Magnetization          : ", 3F12.6)') m1(1:npol)
+add_bfield.f90:     write(stdout,'(5x," External magnetic field: ", 3f13.5)') &
+add_efield.f90:       WRITE( stdout,*)
+add_efield.f90:       WRITE( stdout,'(5x,"Adding external electric field":)')
+add_efield.f90:          WRITE( stdout,'(/5x,"Computed dipole along edir(",i1,") : ")' ) edir
+add_efield.f90:              WRITE( stdout, '(8X,"Elec. dipole ",1F15.4," Ry au,  ", 1F15.4," Debye")' ) &
+add_efield.f90:              WRITE( stdout, '(8X,"Ion. dipole  ",1F15.4," Ry au,", 1F15.4," Debye")' ) &
+add_efield.f90:          WRITE( stdout, '(8X,"Dipole       ",1F15.4," Ry au, ", 1F15.4," Debye")' ) &
+add_efield.f90:          WRITE( stdout, '(8x,"Dipole field     ", f11.4," Ry au")') tot_dipole
+add_efield.f90:          WRITE( stdout,*)
+add_efield.f90:       IF (abs(eamp)>0._dp) WRITE( stdout, &
+add_efield.f90:       WRITE( stdout,'(8x,"Potential amp.   ", f11.4," Ry")') vamp 
+add_efield.f90:       WRITE( stdout,'(8x,"Total length     ", f11.4," bohr")') length
+add_efield.f90:       WRITE( stdout,*)     
+allocate_fft.f90:     WRITE( stdout, '(/,4x," nr1=",i4," nr2= ", i4, " nr3=",i4, &
+allocate_fft.f90:     WRITE( stdout, '(/,4x," nr1s=",i4," nr2s= ", i4, " nr3s=",i4, &
+allocate_nlpot.f90:    write(stdout,"(5X,'q-space interpolation up to ',F8.2,' Rydberg')") ecutwfc*cell_factor
+atomic_rho.f90:        WRITE( stdout,'(5x,"Check: imaginary charge or magnetization=",&
+atomic_rho.f90:              WRITE( stdout,'(5x,"Check: negative starting charge=", &
+atomic_rho.f90:              WRITE( stdout,'(5x,"Check: negative starting charge=", &
+bp_c_phase.f90:!  --- Write header ---
+bp_c_phase.f90:   WRITE( stdout,"(/,/,/,15X,50('='))")
+bp_c_phase.f90:   WRITE( stdout,"(28X,'POLARIZATION CALCULATION')")
+bp_c_phase.f90:   WRITE( stdout,"(25X,'!!! NOT THOROUGHLY TESTED !!!')")
+bp_c_phase.f90:   WRITE( stdout,"(15X,50('-'),/)")
+bp_c_phase.f90:                           WRITE(6,*) ' error: translated G=', &
+bp_c_phase.f90:                           WRITE(6,*) ' probably because G_par is NOT', &
+bp_c_phase.f90:                           WRITE(6,*) ' Possible choices as smallest ', &
+bp_c_phase.f90:                              WRITE(6,*) ' i=',i,'   G=', &
+bp_c_phase.f90:                        WRITE(6,*) ' |gtr| > gcutm  for gtr=', &
+bp_c_phase.f90:!                           write output information                           !
+bp_c_phase.f90:   WRITE( stdout,"(/,21X,'K-POINTS STRINGS USED IN CALCULATIONS')")
+bp_c_phase.f90:   WRITE( stdout,"(21X,37('~'),/)")
+bp_c_phase.f90:   WRITE( stdout,"(7X,'G-vector along string (2 pi/a):',3F9.5)") &
+bp_c_phase.f90:   WRITE( stdout,"(7X,'Modulus of the vector (1/bohr):',F9.5)") &
+bp_c_phase.f90:   WRITE( stdout,"(7X,'Number of k-points per string:',I4)") nppstr
+bp_c_phase.f90:   WRITE( stdout,"(7X,'Number of different strings  :',I4)") nkort
+bp_c_phase.f90:   WRITE( stdout,"(2/,31X,'IONIC POLARIZATION')")
+bp_c_phase.f90:   WRITE( stdout,"(31X,18('~'),/)")
+bp_c_phase.f90:   WRITE( stdout,"(8X,'Note: (mod 1) means that the phases (angles ranging from' &
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('='))")
+bp_c_phase.f90:   WRITE( stdout,"(4X,'Ion',4X,'Species',4X,'Charge',14X, &
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('-'))")
+bp_c_phase.f90:      WRITE( stdout,"(3X,I3,8X,A2,F12.3,5X,3F8.4,F12.5,' (mod ',I1,')')") &
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('-'))")
+bp_c_phase.f90:   WRITE( stdout,"(47X,'IONIC PHASE: ',F9.5,' (mod ',I1,')')") pdl_ion_tot,mod_ion_tot
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('='))")
+bp_c_phase.f90:   WRITE( stdout,"(2/,28X,'ELECTRONIC POLARIZATION')")
+bp_c_phase.f90:   WRITE( stdout,"(28X,23('~'),/)")
+bp_c_phase.f90:   WRITE( stdout,"(8X,'Note: (mod 1) means that the phases (angles ranging from' &
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('='))")
+bp_c_phase.f90:   WRITE( stdout,"(3X,'Spin',4X,'String',5X,'Weight',6X, &
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('-'))")
+bp_c_phase.f90:      WRITE( stdout,"(3X,' up ',3X,I5,F14.6,4X,3(F8.4),F12.5,' (mod ',I1,')')") &
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('-'))")
+bp_c_phase.f90:         WRITE( stdout,"(3X,'down',3X,I5,F14.6,4X,3(F8.4),F12.5,' (mod ',I1,')')") &
+bp_c_phase.f90:!     --- If there is spin polarization, write information for new strings ---
+bp_c_phase.f90:         WRITE( stdout,"(3X,'down',3X,I4,F15.6,4X,3(F8.4),F12.5,' (mod ',I1,')')") &
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('-'))")
+bp_c_phase.f90:      WRITE( stdout,"(42X,'Average phase   : ',F9.5,' (mod ',I1,')')") & 
+bp_c_phase.f90:      WRITE( stdout,"(40X,'Average phase (up): ',F9.5,' (mod ',I1,')')") & 
+bp_c_phase.f90:      WRITE( stdout,"(38X,'Average phase (down): ',F9.5,' (mod ',I1,')')")& 
+bp_c_phase.f90:      WRITE( stdout,"(42X,'ELECTRONIC PHASE: ',F9.5,' (mod ',I1,')')") & 
+bp_c_phase.f90:   WRITE( stdout,"(2X,76('='))")
+bp_c_phase.f90:   WRITE( stdout,"(2/,31X,'SUMMARY OF PHASES')")
+bp_c_phase.f90:   WRITE( stdout,"(31X,17('~'),/)")
+bp_c_phase.f90:   WRITE( stdout,"(26X,'Ionic Phase:',F9.5,' (mod ',I1,')')") &
+bp_c_phase.f90:   WRITE( stdout,"(21X,'Electronic Phase:',F9.5,' (mod ',I1,')')") &
+bp_c_phase.f90:   WRITE( stdout,"(26X,'TOTAL PHASE:',F9.5,' (mod ',I1,')')") &
+bp_c_phase.f90:   WRITE( stdout,"(2/,29X,'VALUES OF POLARIZATION')")
+bp_c_phase.f90:   WRITE( stdout,"(29X,22('~'),/)")
+bp_c_phase.f90:   WRITE( stdout,"( &
+bp_c_phase.f90:   WRITE( stdout,"(/,11X,'P = ',F11.7,'  (mod ',F11.7,')  (e/Omega).bohr')") &
+bp_c_phase.f90:   WRITE( stdout,"(/,11X,'P = ',F11.7,'  (mod ',F11.7,')  e/bohr^2')") &
+bp_c_phase.f90:   WRITE( stdout,"(/,11X,'P = ',F11.7,'  (mod ',F11.7,')  C/m^2')") &
+bp_c_phase.f90:!  --- Write polarization direction ---
+bp_c_phase.f90:   WRITE( stdout,"(/,8X,'The polarization direction is:  ( ', &
+bp_c_phase.f90:   WRITE( stdout,"(/,/,15X,50('=')/,/)")
+bp_mod.f90:  INTEGER  :: phase_control! 0 no control, 1 write, 2 read
+bp_qvan3.f90:!odl                  Write(*,*) 'QVAN3  --  ivs jvs = ',ivs,jvs
+bp_qvan3.f90:!odl                  Write(*,*) 'QVAN3  --  ivl jvl = ',ivl,jvl
+bp_qvan3.f90:!odl                  Write(*,*) 'QVAN3  --  i = ',i
+bp_qvan3.f90:!odl                  Write(*,*) 'QVAN3  --  lp = ',lp
+bp_qvan3.f90:!odl                  Write(*,*) 'QVAN3  --  sig = ',sig
+bp_qvan3.f90:!        WRITE( stdout,*) 'qvan3',ng1,LP,L,ivs,jvs
+buffers.f90:  PUBLIC :: buiol_write_record  ! (unit, recl, nrec, DATA) write DATA(recl) in record nrec of unit
+buffers.f90:  ! initial number of records in the buffer (each record will only be allocated on write!)
+buffers.f90:      WRITE(*,'(2x,a,3i14)') "[BUIOL] not even initialized"
+buffers.f90:    WRITE(*,'(2x,106("-") )')
+buffers.f90:    WRITE(*,'(2x,106("-"))')
+buffers.f90:    WRITE(*,'(2x,a,3i14)') "[BUIOL] total memory used B/KB/MB", mem, mem/1024, mem/1024**2
+buffers.f90:    WRITE(*,'(2x,106("-"))')
+buffers.f90:  FUNCTION buiol_write_record(unit, recl, nrec, DATA) RESULT (ierr)
+buffers.f90:       CALL infomsg('buiol_write_record', 'cannot write: unit not opened')
+buffers.f90:       CALL infomsg('buiol_write_record', 'cannot write: wrong recl')
+buffers.f90:    WRITE(*,'(2x,a,2(a,i8),(a,2i8),(a,i12))') "[BUIOL] ", &
+buffers.f90:                   buiol_check_unit, buiol_read_record, buiol_write_record
+buffers.f90:       ierr = buiol_write_record ( unit, nword, nrec, vect )
+buffers.f90:           CALL errore ('save_buffer', 'cannot write record', unit)
+buffers.f90:          ierr =  buiol_write_record ( unit, nword, nrec, vect )
+c_bands.f90:     WRITE( stdout, '(5X,"Davidson diagonalization with overlap")' )
+c_bands.f90:     WRITE( stdout, '(5X,"CG style diagonalization")')
+c_bands.f90:  WRITE( stdout, &
+c_bands.f90:     WRITE( stdout, '(5X,"c_bands: ",I2, &
+c_bands.f90:     WRITE( stdout, '(5X,"Davidson diagonalization with overlap")' )
+c_bands.f90:     WRITE( stdout, '(5X,"CG style diagonalization")')
+c_bands.f90:     IF ( iverbosity > 0 ) WRITE( stdout, 9001 ) ik
+c_bands.f90:        WRITE( stdout, 9000 ) get_clock( 'PWSCF' )
+c_bands.f90:  WRITE( stdout, '(/,5X,"ethr = ",1PE9.2,",  avg # of iterations =",0PF5.1)' ) &
+ccgdiagg.f90:        WRITE(stdout,'("e(",i4,") = ",f12.6," eV  (not converged after ",i3,&
+ccgdiagg.f90:        WRITE(stdout,'("e(",i4,") = ",f12.6," eV  (",i3," iterations)")') &
+cdiaghg.f90:        write( 100, fmt="(A20,2D18.10)" ) ' e code = ', e( 1 ), e( n )
+cdiaghg.f90:        ! write( 100, fmt="(I5)" ) n
+cdiaghg.f90:              ! write( 100, fmt="(2I5,2D18.10)" ) i, j, tt( i, j )
+cdiaghg.f90:        write( 100, fmt="(A20,2D18.10)" ) ' e test = ', e( 1 ), e( n )
+cdiaghg.f90:        ! write( 100, * ) 'eigenvalues and eigenvectors'
+cdiaghg.f90:           ! write( 100, fmt="(1I5,1D18.10,A)" ) j, e( j )
+cdiaghg.f90:              ! write( 100, fmt="(2I5,2D18.10)" ) i, j, tt( i, j )
+cegterg.f90:           !!!WRITE( stdout, '(5X,"WARNING: ",I5, &
+cegterg.f90:           !!!WRITE( stdout, '(5X,"WARNING: ",I5, &
+compute_qdipol.f90:                 ! WRITE( stdout,'(3i5,2f15.9)') ih,jh,ipol,dpqq(ih,jh,ipol,nt)
+compute_ux.f90:      WRITE( stdout,'(/,5x,"Fixed quantization axis for GGA: ", 3f12.6)') &
+c_phase_field.f90:                           WRITE(6,*) ' error: translated G=', &
+c_phase_field.f90:                           WRITE(6,*) ' probably because G_par is NOT', &
+c_phase_field.f90:                           WRITE(6,*) ' Possible choices as smallest ', &
+c_phase_field.f90:                              WRITE(6,*) ' i=',i,'   G=', &
+c_phase_field.f90:                        WRITE(6,*) ' |gtr| > gcutm  for gtr=', &
+c_phase_field.f90:            if(ionode) write(iun_phase,*) kort,is,zeta_loc
+c_phase_field.f90:!         write(stdout,*) 'String :',kort,zeta_loc
+c_phase_field.f90:!write output
+c_phase_field.f90:   write(stdout,*)
+c_phase_field.f90:   write(stdout,*) "    Expectation value of exp(iGx):",zeta_tot,dkfact
+c_phase_field.f90:   write(stdout,*) "    Electronic Dipole per cell (Ry a.u.)",pola
+c_phase_field.f90:  write(stdout,*) "    Ionic Dipole per cell (Ry a.u.)",pola_ion
+divide_class_so.f90:SUBROUTINE write_group_info(flag)
+divide_class_so.f90:! This routine writes on output the main information on the point group
+divide_class_so.f90:! If flag is .false. writes only the character table. If flag is .true.
+divide_class_so.f90:! writes also the elements of each class.
+divide_class_so.f90:      WRITE(stdout,'(/,5x,"the magnetic double point group is ", &
+divide_class_so.f90:      WRITE(stdout,'(5x,"using the double point group ",a11)') &
+divide_class_so.f90:      WRITE(stdout,'(/,5x,"double point group ",a11)') gname
+divide_class_so.f90:   WRITE(stdout,'(5x, "there are", i3," classes and",i3, &
+divide_class_so.f90:   WRITE(stdout,'(/,5x,"point group ",a11)') gname
+divide_class_so.f90:   WRITE(stdout,'(5x, "there are", i3," classes")') nclass
+divide_class_so.f90:WRITE(stdout,'(5x, "the character table:")')
+divide_class_so.f90:   WRITE(stdout,'(/,7x,12(a5,1x))') (name_class_so(irot), &
+divide_class_so.f90:   WRITE(stdout,'(7x,12(a5,1x))') (name_class_so1(irot), &
+divide_class_so.f90:      WRITE(stdout,'(a5,12f6.2)') name_rap_so(iclass), &
+divide_class_so.f90:      WRITE(stdout,'(/,7x,12(a5,1x))') (name_class_so(irot), &
+divide_class_so.f90:      WRITE(stdout,'(7x,12(a5,1x))') (name_class_so1(irot), &
+divide_class_so.f90:         WRITE(stdout,'(a5,12f6.2)') name_rap_so(iclass), &
+divide_class_so.f90:      WRITE(stdout,'(/,5x,"imaginary part")')
+divide_class_so.f90:      WRITE(stdout,'(/,7x,12(a5,1x))') (name_class_so(irot), &
+divide_class_so.f90:      WRITE(stdout,'(7x,12(a5,1x))') (name_class_so1(irot), &
+divide_class_so.f90:         WRITE(stdout,'(a5,12f6.2)') name_rap_so(iclass), &
+divide_class_so.f90:         WRITE(stdout,'(/,7x,12(a5,1x))') (name_class_so(irot), &
+divide_class_so.f90:         WRITE(stdout,'(7x,12(a5,1x))') (name_class_so1(irot), &
+divide_class_so.f90:            WRITE(stdout,'(a5,12f6.2)') name_rap_so(iclass), &
+divide_class_so.f90:      WRITE(stdout,'(/5x, "the symmetry operations in each class and &
+divide_class_so.f90:            WRITE(stdout,'(5x,2a5,12i5)') &
+divide_class_so.f90:            WRITE(stdout,'(10x,a)') elem_name_so(1,iclass)
+divide_class_so.f90:   WRITE(stdout,'(/,7x,12(a5,1x))') (name_class(irot),irot=1,nclass)
+divide_class_so.f90:      WRITE(stdout,'(a5,12f6.2)') name_rap(iclass), &
+divide_class_so.f90:      WRITE(stdout,'(5x,"imaginary part")')
+divide_class_so.f90:         WRITE(stdout,'(a5,12f6.2)') name_rap(iclass), &
+divide_class_so.f90:      WRITE(stdout,'(/5x, "the symmetry operations in each class and &
+divide_class_so.f90:            WRITE(stdout,'(5x,a5,12i5)') name_class(which_irr(iclass)), &
+divide_class_so.f90:            WRITE(stdout,'(10x,a)') elem_name(1,iclass)
+divide_class_so.f90:END SUBROUTINE write_group_info
+divide_class_so.f90:!write(6,'(3f12.5,5x,f12.5)') ax(1), ax(2), ax(3), angle
+divide_class_so.f90:!write(6,'(2f12.5)') cosa, sina
+divide_class_so.f90:!write(6,*) diff
+divide_class_so.f90:!write(6,'(3f15.5)') r1(1,1),r1(1,2),r1(1,3)
+divide_class_so.f90:!write(6,'(3f15.5)') r1(2,1),r1(2,2),r1(2,3)
+divide_class_so.f90:!write(6,'(3f15.5)') r1(3,1),r1(3,2),r1(3,3)
+divide_class_so.f90:!write(6,*)
+divide_class_so.f90:!write(6,'(3f15.5)') r(1,1),r(1,2),r(1,3)
+divide_class_so.f90:!write(6,'(3f15.5)') r(2,1),r(2,2),r(2,3)
+divide_class_so.f90:!write(6,'(3f15.5)') r(3,1),r(3,2),r(3,3)
+divide_class_so.f90:!write(6,*)
+divide_class_so.f90:!write(6,'(4f15.5)') u(1,1),u(1,2)
+divide_class_so.f90:!write(6,'(4f15.5)') u(2,1),u(2,2)
+divide_class_so.f90:      IF (done.ne.1) write(6,*) 'problem, i,j',i,j
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:      WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( stdout, '(/,5X,"Constrained forces (Ry/au):",/)')
+dynamics_module.f90:            WRITE( stdout, &
+dynamics_module.f90:         WRITE( stdout, '(/5X,"Total force = ",F12.6)') dnrm2( 3*nat, force, 1 )
+dynamics_module.f90:      WRITE( stdout, '(/,5X,"NEW ALAT = ",F8.5,2X,"Bohr"  )' ) alat
+dynamics_module.f90:      WRITE( stdout, '(  5X,"PRESSURE = ",F8.5,2X,"Kbar",/)' ) press_new
+dynamics_module.f90:      WRITE( UNIT = 4, FMT = * ) etot, istep, tau(:,:), leof
+dynamics_module.f90:      WRITE( UNIT = 4, FMT = * ) &
+dynamics_module.f90:      WRITE( stdout, '(5X,"kinetic energy (Ekin) = ",F14.8," Ry",/,  &
+dynamics_module.f90:      IF (lstres) WRITE ( stdout, &
+dynamics_module.f90:         WRITE( stdout, '(/,5X,"Linear momentum :",3(2X,F14.10))' ) ml(:)
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:            WRITE( stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:            WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:               WRITE( UNIT = stdout, &
+dynamics_module.f90:            WRITE( UNIT = stdout, &
+dynamics_module.f90:            IF ( nat_moved > 0) WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( stdout, '(/,5X,"Constrained forces (Ry/au):",/)')
+dynamics_module.f90:            WRITE( stdout, &
+dynamics_module.f90:         WRITE( stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:      WRITE( stdout, '(/,5X,"Entering Dynamics:",&
+dynamics_module.f90:      WRITE( UNIT = 4, FMT = * ) etot, istep, tau(:,:), leof
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:      WRITE( UNIT = stdout, &
+dynamics_module.f90:         WRITE( stdout, '(/,5X,"Constrained forces (Ry/au):",/)')
+dynamics_module.f90:            WRITE( stdout, &
+dynamics_module.f90:         WRITE( stdout, '(/5X,"Total force = ",F12.6)') dnrm2( 3*nat, force, 1 )
+dynamics_module.f90:      WRITE( UNIT = 4, FMT = * ) istep
+dynamics_module.f90:      WRITE( 4, '(2(2X,F16.8))' ) &
+dynamics_module.f90:      WRITE( UNIT = stdout, &
+dynamics_module.f90:          WRITE( UNIT = stdout, &
+dynamics_module.f90:      WRITE( UNIT = stdout, FMT = '(/,5X,"< D > = ",F16.8," cm^2/s")' ) &
+dynamics_module.f90:         WRITE( 4, '(2(2X,F16.8))' ) &
+dynamics_module.f90:         WRITE( UNIT = stdout, &
+dynamics_module.f90:            FILE = trim( bfgs_file ), STATUS = 'UNKNOWN', ACTION = 'WRITE' )
+dynamics_module.f90:      WRITE( iunbfgs, * ) pos(:)
+dynamics_module.f90:      WRITE( iunbfgs, * ) grad(:)
+dynamics_module.f90:      WRITE( iunbfgs, * ) inv_hess(:,:)
+dynamics_module.f90:      WRITE( UNIT = stdout, FMT = '(/,5X,"<vel(dt)|acc(dt)> = ",F12.8)' ) &
+dynamics_module.f90:     write(stdout, '(5x,"The old energy is:",3x,F17.8," Ry")') etot_smart
+dynamics_module.f90:     write(stdout, '(5x,"The new energy is:",3x,F17.8," Ry")') etot
+dynamics_module.f90:     write(stdout, '(5x,"The possibility to accept this step is:",3x,F10.7/)') p_smc
+dynamics_module.f90:     write(stdout, '(5x,"Nervously waiting for the fate ..."/)')
+dynamics_module.f90:     write(stdout, '(5x,"The fate says:",5x,F10.7)') temp
+dynamics_module.f90:       write(stdout, '(5x,"The new config is accepted")')
+dynamics_module.f90:       write(stdout, '(5x,"The new config is not accepted")')
+dynamics_module.f90:     write (stdout, '(5x,"The current acceptance is :",3x,F10.6)') dble(num_accept)/istep
+dynamics_module.f90:     write(117,'(I5)') nat
+dynamics_module.f90:     write(117,'("# Step: ",I5,5x,"Total energy: ",F17.8,5x,"Ry")') istep-1, etot
+dynamics_module.f90:       WRITE( 117, '(A3,3X,3F14.9)') atm(ityp(ia)),tau(:,ia)*alat*bohr_radius_angs
+efermig.f90:  if (is /= 0) WRITE(stdout, '(5x,"Spin Component #",i3)') is
+efermig.f90:  WRITE( stdout, '(5x,"Warning: too many iterations in bisection"/ &
+efermit.f90:  if (is /= 0) WRITE(stdout, '(5x,"Spin Component #",i3)') is
+efermit.f90:  WRITE( stdout, 9010) ef * rytoev, sumkmid
+efermit.f90:          WRITE( stdout, 9020) ef * rytoev, ik, et (nbnd, ik) * rytoev
+electrons.f90:           ! FIXME: ugly hack, overwrites exxbuffer from exxinit
+electrons.f90:           IF (ios /= 0) WRITE(stdout,'(5x,"Error in EXX restart!")')
+electrons.f90:           WRITE(stdout,'(5x,"Calculation (EXX) restarted from iteration #", &
+electrons.f90:           WRITE(stdout,'(5x,"Calculation (EXX) stopped during iteration #", &
+electrons.f90:           WRITE (iunres, *) iter-1, tr2, dexx
+electrons.f90:           WRITE (iunres, *) fock0, fock1, fock2
+electrons.f90:           WRITE (iunres, *) (wg(1:nbnd,ik),ik=1,nks)
+electrons.f90:           WRITE (iunres, *) (et(1:nbnd,ik),ik=1,nks)
+electrons.f90:           WRITE (iunres) exxbuff
+electrons.f90:           WRITE( stdout, 9066 ) '!', etot, hwf_energy, dexx
+electrons.f90:           WRITE( stdout, 9066 ) ' ', etot, hwf_energy, dexx
+electrons.f90:        WRITE( stdout, 9062 ) - fock1
+electrons.f90:        WRITE( stdout, 9064 ) 0.5D0*fock2
+electrons.f90:           WRITE( stdout, 9101 )
+electrons.f90:           WRITE( stdout, 9121 ) tr2
+electrons.f90:     WRITE( stdout,'(/5x,"EXX: now go back to refine exchange calculation")')
+electrons.f90:        WRITE(stdout,'(5x,"Calculation (EXX) stopped after iteration #", &
+electrons.f90:        WRITE (iunres, *) iter, tr2, dexx
+electrons.f90:        WRITE (iunres, *) fock0, fock1, fock2
+electrons.f90:        WRITE (iunres, *) (wg(1:nbnd,ik),ik=1,nks)
+electrons.f90:        WRITE (iunres, *) (et(1:nbnd,ik),ik=1,nks)
+electrons.f90:  WRITE( stdout, 9120 ) iter
+electrons.f90:  USE io_rho_xml,           ONLY : write_rho
+electrons.f90:  WRITE( stdout, 9000 ) get_clock( 'PWSCF' )
+electrons.f90:  IF ( kilobytes > 0 ) WRITE( stdout, 9001 ) kilobytes/1000.0
+electrons.f90:  WRITE( stdout, 9002 )
+electrons.f90:     WRITE( stdout, 9010 ) iter, ecutwfc, mixing_beta
+electrons.f90:                 CALL write_ns_nc()
+electrons.f90:                 CALL write_ns()
+electrons.f90:              WRITE( stdout, '(/,5X,"RESET ns to initial values (iter <= mixing_fixed_ns)",/)')
+electrons.f90:              WRITE( stdout, '(/,5X,"Threshold (ethr) on eigenvalues was ", &
+electrons.f90:     WRITE( stdout, 9000 ) get_clock( 'PWSCF' )
+electrons.f90:     IF ( conv_elec ) WRITE( stdout, 9101 )
+electrons.f90:              CALL write_ns_nc()
+electrons.f90:              CALL write_ns()
+electrons.f90:        WRITE( stdout, 9050 ) charge, nelec
+electrons.f90:        WRITE( stdout, 9110 ) iter
+electrons.f90:  WRITE( stdout, 9101 )
+electrons.f90:  WRITE( stdout, 9120 ) iter
+electrons.f90:  ! ... exiting: write (unless disables) the charge density to file
+electrons.f90:  ! ... (also write ldaU ns coefficients and PAW becsum)
+electrons.f90:  IF ( io_level > -1 ) CALL write_rho( rho, nspin )
+electrons.f90:          write(stdout,'( "Electronic Dipole on Cartesian axes" )')
+electrons.f90:             write(stdout,*) i, el_pol_cart(i)
+electrons.f90:          write(stdout,'( "Ionic Dipole on Cartesian axes" )')
+electrons.f90:             write(stdout,*) i, ion_pol(i)
+electrons.f90:             WRITE( stdout, 9081 ) etot, hwf_energy, dr2
+electrons.f90:             WRITE( stdout, 9083 ) etot, hwf_energy, dr2
+electrons.f90:          IF ( only_paw ) WRITE( stdout, 9085 ) etot+total_core_energy
+electrons.f90:          WRITE( stdout, 9060 ) &
+electrons.f90:          IF ( llondon ) WRITE ( stdout , 9074 ) elondon
+electrons.f90:          IF ( lxdm )    WRITE ( stdout , 9075 ) exdm
+electrons.f90:          IF ( ts_vdw )  WRITE ( stdout , 9076 ) 2.0d0*EtsvdW
+electrons.f90:          IF ( textfor)  WRITE ( stdout , 9077 ) eext
+electrons.f90:          IF ( tefield )            WRITE( stdout, 9061 ) etotefield
+electrons.f90:          IF ( lda_plus_u )         WRITE( stdout, 9065 ) eth
+electrons.f90:          IF ( ABS (descf) > eps8 ) WRITE( stdout, 9069 ) descf
+electrons.f90:          IF ( okpaw )              WRITE( stdout, 9067 ) epaw
+electrons.f90:          IF ( lgauss ) WRITE( stdout, 9070 ) demet
+electrons.f90:          IF ( lfcpopt .or. lfcpdyn ) WRITE( stdout, 9072 ) ef*tot_charge
+electrons.f90:             WRITE( stdout, 9081 ) etot, hwf_energy, dr2
+electrons.f90:             WRITE( stdout, 9083 ) etot, hwf_energy, dr2
+electrons.f90:             WRITE( stdout, 9080 ) etot, hwf_energy, dr2
+electrons.f90:             WRITE( stdout, 9082 ) etot, hwf_energy, dr2
+electrons.f90:       IF ( lsda ) WRITE( stdout, 9017 ) magtot, absmag
+electrons.f90:            WRITE( stdout, 9018 ) magtot_nc(1:3), absmag
+electrons.f90:            WRITE( stdout, 9071 ) bfield(1), bfield(2), bfield(3)
+electrons.f90:            WRITE( stdout, 9073 ) lambda
+esm.f90:  !write( *,'(5x,"alpha used in ewald term: ",f5.2 )')alpha
+esm.f90:     write( stdout, '(5x,"=== Smooth-ESM RSUM parameters (Energy) ===")')
+esm.f90:     write( stdout, '(5x,A,F10.2,A)') &
+esm.f90:     write( stdout, '(5x,A,F10.2,A)') &
+esm.f90:     write( stdout, '(5x,A,F10.2,A)') &
+esm.f90:     write( stdout, '(5x,"===========================================")')
+esm.f90:  !write(*,'(5X,A,F5.2)')'alpha used in esm ewald force :',alpha
+esm.f90:     write( stdout, '(5x,"=== Smooth-ESM RSUM parameters (Force) ===")')
+esm.f90:     write( stdout, '(5x,A,F10.2,A)') &
+esm.f90:     write( stdout, '(5x,A,F10.2,A)') &
+esm.f90:     write( stdout, '(5x,A,F10.2,A)') &
+esm.f90:     write( stdout, '(5x,"==========================================")')
+esm.f90:           ACTION = "WRITE" )
+esm.f90:     write( UNIT = 4, FMT = 9050 )
+esm.f90:        write( UNIT = 4, FMT = 9051 ) work4(1:5,iz)
+esm.f90:      WRITE( UNIT = stdout,                                          &
+esm.f90:         WRITE( UNIT = stdout,                                     &
+esm.f90:         WRITE( UNIT = stdout,                                     &
+esm.f90:         WRITE( UNIT = stdout,                                     &
+esm.f90:         WRITE( UNIT = stdout,                                     &
+esm.f90:         WRITE( UNIT = stdout,                                     &
+esm.f90:         WRITE( UNIT = stdout, FMT = 9051 ) esm_efield
+esm.f90:         WRITE( UNIT = stdout, FMT = 9052 ) esm_w*BOHR_RADIUS_ANGS, esm_w
+esm.f90:        WRITE( UNIT = stdout, FMT = 9054 ) esm_a
+esm.f90:      WRITE( UNIT = stdout, FMT = 9053 ) esm_nfit
+esm.f90:      WRITE( stdout, * )
+ewald.f90:  !      WRITE( stdout,'(/5x,"alpha used in ewald term: ",f4.2/
+exx.f90:                write (*,*) ik, iq, temp_nkqs
+exx.f90:                write (*,*) sxk(:)
+exx.f90:      WRITE(stdout, '(5x,3a)') "EXX: setup a grid of "//TRIM(int_to_char(nkqs))&
+exx.f90:      WRITE( stdout, '(5x,a)' ) '(k+q)-points:'
+exx.f90:          WRITE( stdout, '(3f12.7,5x,i2,i5)') (xkq_collect (ikq, ik) , ikq = 1, 3) , &
+exx.f90:      WRITE(stdout, '("EXX: grid of k+q points same as grid of k-points")')
+exx.f90:                  write(*,*) ik,iq
+exx.f90:                  write(*,*) ikq,ikk,isym
+exx.f90:                  write(*,*) dxk(:)
+fcp.f90:      WRITE( UNIT = 4, FMT = * ) istep, tau
+fcp.f90:      WRITE( UNIT = 4, FMT = * ) temp_new, temp_av, fcp_mass, elapsed_time
+fcp.f90:      WRITE( stdout, '(/,5X,"FCP : Fermi Energy = ",F12.6," eV")') ef     * rytoev
+fcp.f90:      WRITE( stdout, '(  5X,"FCP : Target Mu    = ",F12.6," eV")') fcp_mu * rytoev
+fcp.f90:      WRITE( stdout, '(  5X,"FCP : tot_charge   = ",F12.6      )') tot_charge
+fcp.f90:            WRITE( stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:         WRITE( UNIT = stdout, &
+fcp.f90:         WRITE( UNIT = stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:               WRITE( UNIT = stdout, &
+fcp.f90:            WRITE( UNIT = stdout, &
+fcp.f90:            IF ( nat_moved > 0) WRITE( UNIT = stdout, &
+fcp.f90:         write( stdout,'(/,5X,"Upper bound for tot_charge:",F12.6)') &
+fcp.f90:         write( stdout,'(5X,"Original:",F12.6," Expected:",F12.6)') &
+fcp.f90:         write( stdout,'(5X,"Next tot_charge:",F12.6)') tot_charge
+fcp.f90:      WRITE( stdout, FMT = 9001 ) force
+fcp.f90:         WRITE( UNIT = stdout, FMT  = '(5x, &
+fcp.f90:         WRITE( UNIT = stdout, FMT = 9056 ) fcp_mu*rytoev, fcp_mu
+fcp.f90:         WRITE( UNIT = stdout, FMT = 9057 ) tot_charge
+fcp.f90:         WRITE( UNIT = stdout, FMT = 9058 ) fcp_relax_step
+fcp.f90:         WRITE( UNIT = stdout, FMT = 9059 ) fcp_relax_crit*rytoev, &
+fcp.f90:         WRITE( UNIT = stdout, FMT  = '(5x, &
+fcp.f90:         WRITE( UNIT = stdout, FMT = 9056 ) fcp_mu*rytoev, fcp_mu
+fcp.f90:         WRITE( UNIT = stdout, FMT = 9057 ) tot_charge
+force_hub.f90:   write(66,'("Hubbard contribution Begin")')
+force_hub.f90:   write(66,'(3f12.6)') forceh(:,:)
+force_hub.f90:   write(66,'("Hubbard contribution End")')
+forces_bp_efield.f90:                                          write(stdout,*) 'OH BOY', aux_rcv_ind(ig,iproc)
+forces_bp_efield.f90:                                    write(stdout,*) 'OH BOY',aux_g_mpi_ind(ig,mpime+1)
+forces.f90:  WRITE( stdout, '(/,5x,"Forces acting on atoms (Ry/au):", / )')
+forces.f90:  ! ... write on output the forces
+forces.f90:     WRITE( stdout, 9035) na, ityp(na), force(:,na)
+forces.f90:        WRITE( stdout, '(5x,"The Martyna-Tuckerman correction term to forces")')
+forces.f90:           WRITE( stdout, 9035) na, ityp(na), ( force_mt(ipol,na), ipol = 1, 3 )
+forces.f90:     WRITE( stdout, '(5x,"The non-local contrib.  to forces")')
+forces.f90:        WRITE( stdout, 9035) na, ityp(na), ( forcenl(ipol,na), ipol = 1, 3 )
+forces.f90:     WRITE( stdout, '(5x,"The ionic contribution  to forces")')
+forces.f90:        WRITE( stdout, 9035) na, ityp(na), ( forceion(ipol,na), ipol = 1, 3 )
+forces.f90:     WRITE( stdout, '(5x,"The local contribution  to forces")')
+forces.f90:        WRITE( stdout, 9035) na, ityp(na), ( forcelc(ipol,na), ipol = 1, 3 )
+forces.f90:     WRITE( stdout, '(5x,"The core correction contribution to forces")')
+forces.f90:        WRITE( stdout, 9035) na, ityp(na), ( forcecc(ipol,na), ipol = 1, 3 )
+forces.f90:     WRITE( stdout, '(5x,"The Hubbard contrib.    to forces")')
+forces.f90:        WRITE( stdout, 9035) na, ityp(na), ( forceh(ipol,na), ipol = 1, 3 )
+forces.f90:     WRITE( stdout, '(5x,"The SCF correction term to forces")')
+forces.f90:        WRITE( stdout, 9035) na, ityp(na), ( forcescc(ipol,na), ipol = 1, 3 )
+forces.f90:        WRITE( stdout, '(/,5x,"Dispersion contribution to forces:")')
+forces.f90:           WRITE( stdout, 9035) na, ityp(na), (force_disp(ipol,na), ipol = 1, 3)
+forces.f90:        WRITE( stdout, '(/,5x,"XDM contribution to forces:")')
+forces.f90:           WRITE( stdout, 9035) na, ityp(na), (force_disp_xdm(ipol,na), ipol = 1, 3)
+forces.f90:        WRITE( stdout, '(/,5x,"TS-VDW contribution to forces:")')
+forces.f90:           WRITE( stdout, 9035) na, ityp(na), (2.0d0*FtsvdW(ipol,na), ipol=1,3)
+forces.f90:  WRITE( stdout, '(/5x,"Total force = ",F12.6,5X, &
+forces.f90:     WRITE ( stdout, '(/,5x, "Total Dispersion Force = ",F12.6)') sum_mm
+forces.f90:     WRITE ( stdout, '(/,5x, "Total XDM Force = ",F12.6)') sum_mm
+forces.f90:  WRITE( stdout,'(5x,"SCF correction compared to forces is large: ", &
+gen_at_dj.f90:      WRITE( stdout,*) 'iatw =',iatw,'natw =',natw
+gen_at_dy.f90:      WRITE( stdout,*) 'iatw =',iatw,'natw =',natw
+generate_rVV10_kernel_table.f90:  !! Finally, we write out the results, after letting everybody catch up
+generate_rVV10_kernel_table.f90:  call write_kernel_table_file(phi, d2phi_dk2)
+generate_rVV10_kernel_table.f90:  !!                                   |  WRITE_KERNEL_TABLE_FILE  |
+generate_rVV10_kernel_table.f90:  !! Subroutine to write out the vdW_kernel_table file.  All processors pass their data to processor 0 which
+generate_rVV10_kernel_table.f90:  subroutine write_kernel_table_file(phi, d2phi_dk2)
+generate_rVV10_kernel_table.f90:       !open(UNIT=21, FILE='vdW_kernel_table', status='replace', form='unformatted', action='write')
+generate_rVV10_kernel_table.f90:       open(UNIT=21, FILE='rVV10_kernel_table', status='replace', form='formatted', action='write') 
+generate_rVV10_kernel_table.f90:       !! Write the relevant header information that will be read in by the kernel_table module
+generate_rVV10_kernel_table.f90:       !write(*) "Writing headers..."
+generate_rVV10_kernel_table.f90:       write(21, '(2i5,f13.8)') Nqs, Nr_points
+generate_rVV10_kernel_table.f90:       write(21, double_format) r_max
+generate_rVV10_kernel_table.f90:       write(21, double_format) q_mesh
+generate_rVV10_kernel_table.f90:       !! Processor 0 writes its kernel functions first.  The subroutine "write_data" is defined
+generate_rVV10_kernel_table.f90:       !write(*) "Writing phi proc ", 0
+generate_rVV10_kernel_table.f90:       call write_data(21, data)
+generate_rVV10_kernel_table.f90:    !! write the data.
+generate_rVV10_kernel_table.f90:          !write(*) "Writing phi proc ", proc_i
+generate_rVV10_kernel_table.f90:          call write_data(21, data)
+generate_rVV10_kernel_table.f90:       !write(*) "Writing d2phi_dk2 proc ", 0
+generate_rVV10_kernel_table.f90:       call write_data(21, data)
+generate_rVV10_kernel_table.f90:          !write(*) "Writing d2phi_dk2 proc ", proc_i 
+generate_rVV10_kernel_table.f90:          call write_data(21, data)
+generate_rVV10_kernel_table.f90:  end subroutine write_kernel_table_file
+generate_rVV10_kernel_table.f90:  !!                                      |  WRITE_DATA  |
+generate_rVV10_kernel_table.f90:  !! Write matrix data held in the point "array" to the file with unit number "file".  Data is written
+generate_rVV10_kernel_table.f90:  subroutine write_data(file, array)
+generate_rVV10_kernel_table.f90:    integer, intent(in) :: file                    !! Unit number of file to write to
+generate_rVV10_kernel_table.f90:       ! write(file) array(:,index)
+generate_rVV10_kernel_table.f90:       write (file, double_format, err=100, iostat=ios) array(:,index)    
+generate_rVV10_kernel_table.f90:  end subroutine write_data
+generate_vdW_kernel_table.f90:! Finally, we write out the results, after letting everybody catch up.
+generate_vdW_kernel_table.f90:call write_kernel_table_file(phi, d2phi_dk2)
+generate_vdW_kernel_table.f90:  !                       |  WRITE_KERNEL_TABLE_FILE  |
+generate_vdW_kernel_table.f90:  ! Subroutine to write out the vdW_kernel_table file. All processors
+generate_vdW_kernel_table.f90:  subroutine write_kernel_table_file(phi, d2phi_dk2)
+generate_vdW_kernel_table.f90:     open(UNIT=21, FILE='vdW_kernel_table', status='replace', form='formatted', action='write')
+generate_vdW_kernel_table.f90:     ! Write the relevant header information that will be read in by the
+generate_vdW_kernel_table.f90:     write(21, '(2i5,f13.8)') Nqs, Nr_points
+generate_vdW_kernel_table.f90:     write(21, double_format) r_max
+generate_vdW_kernel_table.f90:     write(21, double_format) q_mesh
+generate_vdW_kernel_table.f90:     ! Processor 0 writes its kernel functions first.  The subroutine
+generate_vdW_kernel_table.f90:     ! "write_data" is defined below.
+generate_vdW_kernel_table.f90:     call write_data(21, data)
+generate_vdW_kernel_table.f90:  ! phi array. Then write the data.
+generate_vdW_kernel_table.f90:        call write_data(21, data)
+generate_vdW_kernel_table.f90:     call write_data(21, data)
+generate_vdW_kernel_table.f90:        call write_data(21, data)
+generate_vdW_kernel_table.f90:  end subroutine write_kernel_table_file
+generate_vdW_kernel_table.f90:  !                           |  WRITE_DATA  |
+generate_vdW_kernel_table.f90:  ! Write matrix data held in the point "array" to the file with unit
+generate_vdW_kernel_table.f90:  subroutine write_data(file, array)
+generate_vdW_kernel_table.f90:  integer, intent(in) :: file        ! Unit number of file to write to.
+generate_vdW_kernel_table.f90:     write (file, double_format, err=100, iostat=ios) array(:,idx)
+generate_vdW_kernel_table.f90:  end subroutine write_data
+gen_us_dy.f90:     WRITE( stdout, * ) ikb, nkb
+h_epsi_her_set.f90:                     WRITE(6,*) ' error hepsiher: translated G=', &
+h_epsi_her_set.f90:                     WRITE(6,*) ' probably because G_par is NOT', &
+h_epsi_her_set.f90:                     WRITE(6,*) ' Possible choices as smallest ', &
+h_epsi_her_set.f90:                        WRITE(6,*) ' i=',i,'   G=', &
+h_epsi_her_set.f90:                  WRITE(6,*) ' |gtr| > gcutm  for gtr=', &
+h_epsi_her_set.f90:                  WRITE(6,*) ' error hepsiher: translated G=', &
+h_epsi_her_set.f90:                  WRITE(6,*) ' probably because G_par is NOT', &
+h_epsi_her_set.f90:                  WRITE(6,*) ' Possible choices as smallest ', &
+h_epsi_her_set.f90:                     WRITE(6,*) ' i=',i,'   G=', &
+h_epsi_her_set.f90:               WRITE(6,*) ' |gtr| > gcutm  for gtr=', &
+h_epsi_her_set.f90:!writes projectors to disk 
+hinit0.f90:     IF ( nks > 1 ) WRITE( iunigk ) igk
+hinit0.f90:   write(stdout,'(5X,"Real space initialisation completed")')    
+init_q_aeps.f90:            write(*,*) '> QQ_AE matrix:'
+init_q_aeps.f90:               write(*,'(99F9.6)') qq_ae(nb,1:upf(nt)%nbeta,nt)
+init_q_aeps.f90:            write(*,*) "nbH=",nbH,", lH",lH
+init_q_aeps.f90:               write(*,*) "na, ityp, lH=",na,ityp(na),lH
+init_q_aeps.f90:               write(*,*) "nbH,lH,offset",nbH,lH,iwfc
+init_q_aeps.f90:                     if ( ionode .AND. iverbosity == 1 ) write(*,'(A,6I3,F9.6)') &
+init_q_aeps.f90:                        write(*,'(A,3I3,2F9.6)') "iwfc,jh,na,q_ae,qq_ae", &
+init_q_aeps.f90:                        write(*,'(A,3I3,2F9.6)') "iwfc,jh,na,q_ps,qq_ps", &
+init_q_aeps.f90:         write(*,*) ">>> atom ",na,", type ",nt
+init_q_aeps.f90:         write(*,*) "    q_ae matrix"
+init_q_aeps.f90:                  write(*,'(2I1,99F6.3)') l,m,q_ae(jwfc,:,na)
+init_q_aeps.f90:         write(*,*) "    q_ps matrix"
+init_q_aeps.f90:                  write(*,'(2I1,99F6.3)') l,m,q_ps(jwfc,:,na)
+init_us_2.f90:!   write(*,'(3i4,i5,3f10.5)') size(tab,1), size(tab,2), size(tab,3), size(vq), q_
+input.f90:     WRITE( stdout, &
+input.f90:     WRITE( stdout, &
+input.f90:     ! In the scf case, it is usually convenient to write to RAM;
+input.f90:     ! otherwise it is preferrable to write to disk, since the number
+input.f90:     CASE ('write')
+input.f90:     WRITE( stdout, &
+io_rho_xml.f90:  USE xml_io_base, ONLY : create_directory, write_rho_xml, read_rho_xml
+io_rho_xml.f90:  PUBLIC :: write_rho, read_rho
+io_rho_xml.f90:  ! {read|write}_rho_only:    read or write the real space charge density
+io_rho_xml.f90:  ! {read|write}_rho_general: as above, plus read or write ldaU ns coeffs
+io_rho_xml.f90:  INTERFACE write_rho
+io_rho_xml.f90:        MODULE PROCEDURE write_rho_only, write_rho_general
+io_rho_xml.f90:    SUBROUTINE write_rho_general( rho, nspin, extension )
+io_rho_xml.f90:      ! Use the equivalent routine to write real space density
+io_rho_xml.f90:      CALL write_rho_only( rho%of_r, nspin, extension )
+io_rho_xml.f90:      ! Then write the other terms to separate files
+io_rho_xml.f90:              WRITE( iunocc, * , iostat = ierr) rho%ns_nc
+io_rho_xml.f90:              WRITE( iunocc, * , iostat = ierr) rho%ns
+io_rho_xml.f90:         IF ( ierr/=0 ) CALL errore('write_rho_general', 'Writing ldaU ns', 1)
+io_rho_xml.f90:            WRITE( iunpaw, * , iostat = ierr) rho%bec
+io_rho_xml.f90:         IF ( ierr/=0 ) CALL errore('write_rho_general', 'Writing PAW becsum',1)
+io_rho_xml.f90:          WRITE(stdout,'(5x,"Warning: cannot save meta-gga kinetic terms: not implemented.")')
+io_rho_xml.f90:    END SUBROUTINE write_rho_general
+io_rho_xml.f90:         WRITE(stdout,'(5x,"Warning: cannot read meta-gga kinetic terms: not implemented.")')
+io_rho_xml.f90:    SUBROUTINE write_rho_only( rho, nspin, extension )
+io_rho_xml.f90:      ! ... this routine writes the charge-density in xml format into the
+io_rho_xml.f90:         CALL write_rho_xml( file_base, rho(:,1), dfftp%nr1, dfftp%nr2, &
+io_rho_xml.f90:         CALL write_rho_xml( file_base, rhoaux, dfftp%nr1, dfftp%nr2, &
+io_rho_xml.f90:         CALL write_rho_xml( file_base, rhoaux,  dfftp%nr1, dfftp%nr2, &
+io_rho_xml.f90:         CALL write_rho_xml( file_base, rho(:,1), dfftp%nr1, dfftp%nr2, &
+io_rho_xml.f90:            CALL write_rho_xml( file_base, rho(:,2), dfftp%nr1, dfftp%nr2, &
+io_rho_xml.f90:            CALL write_rho_xml( file_base, rho(:,3), dfftp%nr1, dfftp%nr2, &
+io_rho_xml.f90:            CALL write_rho_xml( file_base, rho(:,4), dfftp%nr1, dfftp%nr2, &
+io_rho_xml.f90:    END SUBROUTINE write_rho_only
+kpoint_grid.f90:  WRITE(*,*) 'EFIELD CART', efield_cart(1),efield_cart(2), efield_cart(3)
+kpoint_grid.f90:  WRITE(*,*) 'EFIELD CRY', efield_cry(1),efield_cry(2), efield_cry(3)
+kpoint_grid.f90:  WRITE(*,*) 'BG1', bg(1,1),bg(2,1),bg(3,1)
+kpoint_grid.f90:  WRITE(*,*) 'BG1', at(1,1),at(2,1),at(3,1)
+kpoint_grid.f90:  WRITE(*,*) 'nx_el1', nx_el(1:nks,1)
+kpoint_grid.f90:!  write(*,*) 'nx_el2', nx_el(1:nks,2)
+kpoint_grid.f90:!  write(*,*) 'nx_el3', nx_el(1:nks,3)
+lchk_tauxk.f90:              WRITE (message,'("atoms #",i4," and #",i4," overlap!")') nv1, nv2
+lchk_tauxk.f90:              WRITE (message,'("atoms #",i4," and #",i4," differ by lattice &
+make_pointlists.f90:  WRITE( stdout,'(5x,"Generating pointlists ...")')
+make_pointlists.f90:        WRITE( stdout,'(5x,"new r_m : ",f8.4," (alat units)", f8.4, &
+makov_payne.f90:  CALL write_dipole( etot, x0, e_dipole, e_quadrupole, qq )
+makov_payne.f90:SUBROUTINE write_dipole( etot, x0, dipole_el, quadrupole_el, qq )
+makov_payne.f90:  WRITE( stdout, '(/5X,"charge density inside the ", &
+makov_payne.f90:  WRITE( stdout, &
+makov_payne.f90:  WRITE( stdout, '(/5X,"Dipole moments (with respect to x0):")' )
+makov_payne.f90:  WRITE( stdout, '( 5X,"Elect",3F9.4," au (Ha),",3F9.4," Debye")' ) &
+makov_payne.f90:  WRITE( stdout, '( 5X,"Ionic",3F9.4," au (Ha),", 3F9.4," Debye")' ) &
+makov_payne.f90:  WRITE( stdout, '( 5X,"Total",3F9.4," au (Ha),", 3F9.4," Debye")' ) &
+makov_payne.f90:  WRITE( stdout, '(/5X,"Electrons quadrupole moment",F20.8," a.u. (Ha)")' )  &
+makov_payne.f90:  WRITE( stdout, '( 5X,"     Ions quadrupole moment",F20.8," a.u. (Ha)")' ) &
+makov_payne.f90:  WRITE( stdout, '( 5X,"    Total quadrupole moment",F20.8," a.u. (Ha)")' ) &
+makov_payne.f90:     call errore(' write_dipole', &
+makov_payne.f90:  WRITE( stdout, '(/,5X,"*********    MAKOV-PAYNE CORRECTION    *********")' )
+makov_payne.f90:  WRITE( stdout, &
+makov_payne.f90:  WRITE( stdout,'(/5X,"Makov-Payne correction ",F14.8," Ry = ",F6.3, &
+makov_payne.f90:  WRITE( stdout,'( 5X,"                       ",F14.8," Ry = ",F6.3, &
+makov_payne.f90:  WRITE( stdout,'( 5X,"                       ",F14.8," Ry = ",F6.3, &
+makov_payne.f90:  WRITE( stdout,'(/"!    Total+Makov-Payne energy  = ",F16.8," Ry")' ) &
+makov_payne.f90:END SUBROUTINE write_dipole
+makov_payne.f90:     WRITE( 123, '("# estimate of the vacuum level as a function of r")' )
+makov_payne.f90:     WRITE( 123, '("#",/,"#",8X,"r (bohr)", &
+makov_payne.f90:        WRITE( 123, '(3(2X,F16.8))' ) r, ( vsph + e2*qq / r )*rytoev, qqr
+makov_payne.f90:  WRITE( stdout, '(5X,"Corrected vacuum level    = ",F16.8," eV")' ) &
+manypw.f90:  ! ... * writes output to pw_N.out in the current directory if no input
+martyna_tuckerman.f90:  ! write (*,*) " alpha, beta MT = ", alpha, beta
+martyna_tuckerman.f90:        write (*,'(4i8)') ir, i,j,k
+martyna_tuckerman.f90:        write (*,'(5f14.8)') r(:), rws, rws2
+martyna_tuckerman.f90:     call  write_wg_on_file(filplot, plot)
+martyna_tuckerman.f90:     call  write_wg_on_file(filplot, plot)
+martyna_tuckerman.f90:     call  write_wg_on_file(filplot, plot)
+martyna_tuckerman.f90:  SUBROUTINE write_wg_on_file(filplot, plot)
+martyna_tuckerman.f90:  END SUBROUTINE write_wg_on_file
+martyna_tuckerman.f90:!  write(*,*) "ewald correction   = ", wg_corr_ewald
+memory_report.f90:  WRITE( stdout, '(/5x,"Largest allocated arrays",5x,"est. size (Mb)", &
+memory_report.f90:  WRITE( stdout, '(8x,"Kohn-Sham Wavefunctions   ",f10.2," Mb", &
+memory_report.f90:     WRITE( stdout, '(8x,"Atomic wavefunctions      ",f10.2," Mb", &
+memory_report.f90:     WRITE( stdout, '(8x,"Atomic Hubbard wavefuncts ",f10.2," Mb", &
+memory_report.f90:  WRITE( stdout, '(8x,"NL pseudopotentials       ",f10.2," Mb", &
+memory_report.f90:     WRITE( stdout, '(8x,"Each V/rho on FFT grid    ",f10.2," Mb", &
+memory_report.f90:     WRITE( stdout, '(8x,"Each V/rho on FFT grid    ",f10.2," Mb", &
+memory_report.f90:  WRITE( stdout, '(8x,"Each G-vector array       ",f10.2," Mb", &
+memory_report.f90:  WRITE( stdout, '(8x,"G-vector shells           ",f10.2," Mb", &
+memory_report.f90:  WRITE( stdout, '(5x,"Largest temporary arrays",5x,"est. size (Mb)", &
+memory_report.f90:     WRITE( stdout, '(8x,"Auxiliary wavefunctions   ",f10.2," Mb", &
+memory_report.f90:  WRITE( stdout, '(8x,"Each subspace H/S matrix  ",f10.2," Mb", &
+memory_report.f90:     WRITE( stdout, '(8x,"Each <psi_i|beta_j> matrix",f10.2," Mb", &
+memory_report.f90:     WRITE( stdout, '(8x,"Each <psi_i|beta_j> matrix",f10.2," Mb", &
+memory_report.f90:  IF ( lscf) WRITE( stdout, &
+mix_rho.f90:  INTEGER, PARAMETER :: read_ = -1, write_ = +1
+mix_rho.f90:  CALL davcio_mix_type( rhout_m, iunmix, 1, write_ )
+mix_rho.f90:  CALL davcio_mix_type( rhoin_m, iunmix, 2, write_ )
+mix_rho.f90:     CALL davcio_mix_type( df(ipos), iunmix, 2*ipos+1, write_ )
+mix_rho.f90:     CALL davcio_mix_type( dv(ipos), iunmix, 2*ipos+2, write_ )
+mix_rho.f90:    !   write(*,'(1e11.3)') e(:)
+mix_rho.f90:    !   write(*,*)
+mix_rho.f90:    !write(*,*) betamix(:,:)
+move_ions.f90:        WRITE( UNIT = iunupdate, FMT = * ) history
+move_ions.f90:        WRITE( UNIT = iunupdate, FMT = * ) tauold
+move_ions.f90:     WRITE( UNIT = iunupdate, FMT = * ) history
+move_ions.f90:     WRITE( UNIT = iunupdate, FMT = * ) tauold
+move_ions.f90:        WRITE(stdout, '(5x,"-------------------------------------------")')
+move_ions.f90:        WRITE(stdout, '(5x,"NEW FEATURE: constraints with variable cell")')
+move_ions.f90:        WRITE(stdout, '(5x,"-------------------------------------------")')
+move_ions.f90:             WRITE( stdout, '(/,5X, &
+move_ions.f90:             WRITE( stdout, '(5X,"FCP Optimisation : tot_charge =",F12.6,/)') &
+move_ions.f90:              WRITE( stdout, &
+move_ions.f90:              WRITE( stdout, &
+move_ions.f90:                   WRITE( stdout, '(5X,"FCP : converged ( criteria force < ", &
+move_ions.f90:                   WRITE( stdout, '(5X,"FCP : final tot_charge =",F12.6,/)') &
+move_ions.f90:     WRITE( UNIT = stdout, FMT = 9110 )
+move_ions.f90:     WRITE( UNIT = stdout, FMT = 9120 )
+move_ions.f90:     WRITE( UNIT = stdout, FMT = 9010 )
+move_ions.f90:     WRITE( UNIT = stdout, FMT = 9020 )
+new_ns.f90:                    WRITE( stdout, * ) na, is, m1, m2  
+new_ns.f90:                    WRITE( stdout, * ) ns (m1, m2, is, na)  
+new_ns.f90:                    WRITE( stdout, * ) ns (m2, m1, is, na)  
+new_ns.f90:                    WRITE( stdout, * ) na, m1, m2, is1, is2  
+new_ns.f90:                    WRITE( stdout, * ) ns (m1, m2, i, na)  
+new_ns.f90:                    WRITE( stdout, * ) ns (m2, m1, j, na)  
+new_occ.f90:     WRITE(6,'(5x,"natomwfc=", i5, " nbnd=",i5)') natomwfc, nbnd
+new_occ.f90:           WRITE(6,*) 'bands ', ibnd, et(ibnd,ik)*rytoev
+new_occ.f90:           WRITE(6,'(8f9.4)') (ABS(proj(iatwfc,ibnd)), iatwfc=1,natomwfc)
+non_scf.f90:  WRITE( stdout, 9002 )
+non_scf.f90:  WRITE( stdout, 9000 ) get_clock( 'PWSCF' )
+non_scf.f90:  WRITE( stdout, 9102 )
+non_scf.f90:  ! ... write band eigenvalues (conv_elec is used in print_ks_energies)
+ns_adj.f90:   write (stdout,*) "Modify starting ns matrices according to input values "
+ns_adj.f90:     CALL write_ns_nc
+ns_adj.f90:     CALL write_ns
+orbm_kubo.f90:                    WRITE(6,*) ' error hepsiher: translated G=', &
+orbm_kubo.f90:                    WRITE(6,*) ' probably because G_par is NOT', &
+orbm_kubo.f90:                    !WRITE(6,*) 'DBGG: n,np=',n,np
+orbm_kubo.f90:                  WRITE(6,*) ' |gtr| > gcutm  for gtr=', &
+orbm_kubo.f90:        ! gk_sort overwrites the kinetic energy - recalculate at ik
+orbm_kubo.f90:  WRITE (stdout,*) ' '
+orbm_kubo.f90:  WRITE (stdout,*) '=============================================='
+orbm_kubo.f90:  WRITE (stdout,*) '=     ORBITAL MAGNETIZATION (KUBO TERMS)     ='
+orbm_kubo.f90:  WRITE (stdout,*) '=============================================='
+orbm_kubo.f90:  WRITE (stdout,*) ' '
+orbm_kubo.f90:  WRITE (stdout,*) '=     Local circulation term                 ='
+orbm_kubo.f90:  WRITE (stdout,*) 'M_LC = ', mlc(1), mlc(2), mlc(3),' (A/m)'
+orbm_kubo.f90:  WRITE (stdout,*) 'M_LC = ', mlc(1)*pbm, mlc(2)*pbm, mlc(3)*pbm,' (Bohr mag/cell)'
+orbm_kubo.f90:  WRITE (stdout,*) ' '
+orbm_kubo.f90:  WRITE (stdout,*) '=     Itinerant circulation term             ='
+orbm_kubo.f90:  WRITE (stdout,*) 'M_IC = ', mic(1), mic(2), mic(3),' (A/m)'
+orbm_kubo.f90:  WRITE (stdout,*) 'M_IC = ', mic(1)*pbm, mic(2)*pbm, mic(3)*pbm,' (Bohr mag/cell)'
+orbm_kubo.f90:  WRITE (stdout,*) ' '
+orbm_kubo.f90:  WRITE (stdout,*) '=============================================='
+orbm_kubo.f90:  WRITE (stdout,*) ' '
+orthoatwfc.f90:     WRITE( stdout,*) 'Beta functions used for LDA+U Projector'
+orthoatwfc.f90:     WRITE( stdout,*) 'LDA+U Projector read from file '
+orthoatwfc.f90:     WRITE( stdout,*) 'Atomic wfc used for LDA+U Projector are NOT orthogonalized'
+orthoatwfc.f90:     WRITE( stdout,*) 'Atomic wfc used for LDA+U Projector are orthogonalized'
+orthoatwfc.f90:     WRITE( stdout,*) 'Atomic wfc used for LDA+U Projector are normalized but NOT orthogonalized'
+orthoatwfc.f90:     WRITE( stdout,*) "U_projection_type =", U_projection
+orthoatwfc.f90:     ! write S * atomic wfc to unit iunsat
+ortho_wfc.f90:  write(stdout,'(5x,a45,2i5)') 'check_ortho for wavefunction with dimentions ', lda,ldb
+ortho_wfc.f90:     write(stdout,'(5x,8f8.4)') (dreal(overlap(i,j)),j=1,lda)
+ortho_wfc.f90:  write(stdout,'(5x,a18)') 'end of check_ortho'
+output_tau.f90:  IF ( print_final  ) WRITE( stdout, '("Begin final coordinates")') 
+output_tau.f90:     WRITE( stdout, '(5x,a,1F12.5," a.u.^3 ( ",1F11.5," Ang^3 )")') &
+output_tau.f90:        WRITE( stdout, '(/"CELL_PARAMETERS (alat=",f12.8,")")') alat 
+output_tau.f90:        WRITE( stdout, '(3F14.9)') ( ( at(i,k), i = 1, 3), k = 1, 3 )
+output_tau.f90:        WRITE( stdout, '(/"CELL_PARAMETERS (bohr)")')  
+output_tau.f90:        WRITE( stdout, '(3F14.9)') ( ( at(i,k) * alat, i = 1, 3), k = 1, 3 )
+output_tau.f90:        WRITE( stdout, '(/"CELL_PARAMETERS (angstrom)")') 
+output_tau.f90:        WRITE( stdout, '(3F14.9)') &
+output_tau.f90:        WRITE( stdout, '(/"CELL_PARAMETERS (alat=",f12.8,")")') alat 
+output_tau.f90:        WRITE( stdout, '(3F14.9)') ( ( at(i,k), i = 1, 3), k = 1, 3 )
+output_tau.f90:     WRITE( stdout, '(/"ATOMIC_POSITIONS (alat)")' )
+output_tau.f90:     WRITE( stdout, '(/"ATOMIC_POSITIONS (bohr)")' )
+output_tau.f90:     WRITE( stdout, '(/"ATOMIC_POSITIONS (crystal)")' )
+output_tau.f90:     WRITE( stdout, '(/"ATOMIC_POSITIONS (angstrom)")' )
+output_tau.f90:     WRITE( stdout, '(/"ATOMIC_POSITIONS")' )
+output_tau.f90:        WRITE( stdout,'(A3,3X,3F14.9,1X,3i4)') &
+output_tau.f90:        WRITE( stdout,'(A3,3X,3F14.9)') &
+output_tau.f90:  IF ( print_final  ) WRITE( stdout, '("End final coordinates")') 
+output_tau.f90:  WRITE( stdout, '(/)' )
+paw_init.f90:    WRITE(stdout,"(5x,a)") &
+paw_init.f90:            WRITE(stdout,"(7x,a,i4,a,10i3)") "node ",np,&
+paw_init.f90:        WRITE( stdout, '(5x,a)') &
+paw_init.f90:        WRITE( stdout, '(7x,a,i3,a,i3,a,i3,a,i3)')     &
+paw_init.f90:    !write(*,*) "paw --> directions",rad%nx," lmax:",rad%lmax
+paw_onecenter.f90:            !IF (present(energy)) write(*,*) 'H',i%a,i_what,sgn*energy
+paw_onecenter.f90:            !IF (present(energy)) write(*,*) 'X',i%a,i_what,sgn*energy
+paw_onecenter.f90:    !if(present(energy)) write(*,*) "gcxc -->", e_gcxc
+paw_onecenter.f90:            !write(*,'(99i4)') nb,mb,nmb
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:            write(*,*) is
+paw_symmetry.f90:            write(stdout,"(1f10.3)", advance='no') becsym(ijh,ia,is)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:            write(*,*) is
+paw_symmetry.f90:            write(stdout,"(1f10.3)", advance='no') dddsym(ijh,ia,is)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:            write(*,*) is
+paw_symmetry.f90:               write(stdout,"(1f10.3)", advance='no') becsym(ijh,ia,is,ipol)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:            write(*,*) is
+paw_symmetry.f90:               write(stdout,"(1f10.3)", advance='no') becsym(ijh,ia,is,ipol)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:   write(stdout,*) "------------"
+paw_symmetry.f90:            write(*,*) is
+paw_symmetry.f90:               write(stdout,"(1f10.3)", advance='no') becsym(ijh,ia,is,ipol)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:            write(stdout,*)
+paw_symmetry.f90:   write(stdout,*) "------------"
+potinit.f90:        WRITE( stdout, '(/5X,"Error reading from file :"/5X,A,/)' ) &
+potinit.f90:        WRITE( stdout, '(/5X, &
+potinit.f90:        WRITE( stdout, '(/5X, &
+potinit.f90:        WRITE( stdout, '(5X,"Cannot read rho : file not found")' )
+potinit.f90:     WRITE( UNIT = stdout, &
+potinit.f90:        WRITE( UNIT = stdout, &
+potinit.f90:        WRITE( stdout, '(/,5X,"starting charge ",F10.5, &
+potinit.f90:        WRITE( stdout, '(/,5X,"Starting from uniform charge")')
+potinit.f90:  ! ... write on output the parameters used in the lda+U calculation
+potinit.f90:     WRITE( stdout, '(5X,"Number of +U iterations with fixed ns =",I3)') &
+potinit.f90:     WRITE( stdout, '(5X,"Starting occupations:")')
+potinit.f90:       CALL write_ns_nc()
+potinit.f90:       CALL write_ns()
+print_clock_pw.f90:   WRITE( stdout, * )
+print_clock_pw.f90:   WRITE( stdout, '(/5x,"Called by init_run:")' )
+print_clock_pw.f90:   WRITE( stdout, '(/5x,"Called by electrons:")' )
+print_clock_pw.f90:   WRITE( stdout, '(/5x,"Called by c_bands:")' )
+print_clock_pw.f90:      WRITE( stdout, '(/5x,"Called by sum_band:")' )
+print_clock_pw.f90:      WRITE( stdout, '(/5x,"Called by *egterg:")' )
+print_clock_pw.f90:      WRITE( stdout, '(/5x,"Called by *cgdiagg:")' )
+print_clock_pw.f90:    WRITE( stdout, '(/5x,"Called by real space routines:")' )
+print_clock_pw.f90:   WRITE( stdout, '(/5x,"Called by h_psi:")' )
+print_clock_pw.f90:   WRITE( stdout, '(/5X,"General routines")' )
+print_clock_pw.f90:   WRITE( stdout, * )
+print_clock_pw.f90:   WRITE( stdout, '(5X,"Parallel routines")' )
+print_clock_pw.f90:      WRITE( stdout, '(/,5X,"Hubbard U routines")' )
+print_clock_pw.f90:      WRITE( stdout, '(/,5X,"EXX routines")' )
+print_clock_pw.f90:        WRITE( stdout, '(/,5X,"EXX+US routines")' )
+print_clock_pw.f90:      WRITE( stdout, '(/,5X,"PAW routines")' )
+print_clock_pw.f90:        WRITE( stdout, '(/,5X,"PAW+EXX routines")' )
+print_ks_energies.f90:     WRITE( stdout, '(/,5x,a)') &
+print_ks_energies.f90:           IF ( ik == 1 ) WRITE( stdout, 9015)
+print_ks_energies.f90:           IF ( ik == ( 1 + nkstot / 2 ) ) WRITE( stdout, 9016)
+print_ks_energies.f90:           WRITE( stdout, 9021 ) ( xk(i,ik), i = 1, 3 ), ngk_g(ik)
+print_ks_energies.f90:           WRITE( stdout, 9020 ) ( xk(i,ik), i = 1, 3 )
+print_ks_energies.f90:        WRITE( stdout, 9030 ) ( et(ibnd,ik) * rytoev, ibnd = 1, nbnd )
+print_ks_energies.f90:           WRITE( stdout, 9032 )
+print_ks_energies.f90:              WRITE( stdout, 9030 ) ( wg(ibnd,ik)/wk(ik), ibnd = 1, nbnd )
+print_ks_energies.f90:              WRITE( stdout, 9030 ) ( wg(ibnd,ik), ibnd = 1, nbnd )
+print_ks_energies.f90:        WRITE( stdout, 9041 ) ef_up*rytoev, ef_dw*rytoev
+print_ks_energies.f90:        WRITE( stdout, 9040 ) ef*rytoev
+print_ks_energies.f90:              WRITE( stdout, 9042 ) ehomo*rytoev, elumo*rytoev
+print_ks_energies.f90:              WRITE( stdout, 9043 ) ehomo*rytoev
+print_ks_energies.f90:              WRITE( stdout, 9042 ) ehomo*rytoev, elumo*rytoev
+print_ks_energies.f90:              WRITE( stdout, 9043 ) ehomo*rytoev
+punch.f90:  USE pw_restart,           ONLY : pw_writefile
+punch.f90:  WRITE( UNIT = stdout, FMT = '(/,5X,"Writing output data file ",A)' ) &
+punch.f90:  CALL pw_writefile( TRIM( what ) )
+pw2blip.f90:         WRITE(6,*)'Bug: bad gamma_approx.' ; STOP
+pw2blip.f90:         WRITE(6,*)'Trying to invert a singular determinant.'
+pw2casino.f90:      write(postfix,*) ''
+pw2casino.f90:      CALL write_casino_wfn( &
+pw2casino.f90:               blip_binary,  & ! binwrite
+pw2casino.f90:!      write(postfix,'(i4.4)') istep
+pw2casino.f90:      CALL write_casino_wfn( &
+pw2casino.f90:               blip_binary,  & ! binwrite
+pw2casino_write.f90:SUBROUTINE write_casino_wfn(gather,blip,multiplicity,binwrite,single_precision_blips,n_points_for_test,postfix)
+pw2casino_write.f90:   LOGICAL, INTENT(in) :: gather,blip,binwrite,single_precision_blips
+pw2casino_write.f90:   LOGICAL :: exst,dowrite
+pw2casino_write.f90:   dowrite=ionode.or..not.(gather.or.blip)
+pw2casino_write.f90:   IF(dowrite)THEN
+pw2casino_write.f90:         IF(binwrite)THEN
+pw2casino_write.f90:            WRITE (6,'(a)')'Writing file '//trim(prefix)//'.bwfn.data.b1'//trim(postfix)//' for program CASINO.'
+pw2casino_write.f90:                  form='unformatted', action='write', access='sequential')
+pw2casino_write.f90:            WRITE (6,'(a)')'Writing file '//trim(prefix)//'.bwfn.data'//trim(postfix)//' for program CASINO.'
+pw2casino_write.f90:                  form='formatted', action='write', access='sequential')
+pw2casino_write.f90:            WRITE (6,'(a)')'Writing file '//trim(prefix)//'.pwfn.data'//trim(postfix)//' for program CASINO.'
+pw2casino_write.f90:                  form='formatted', action='write', access='sequential')
+pw2casino_write.f90:            WRITE (6,'(a)')'Writing one file per node '//trim(prefix)//'.pwfn.data'//trim(postfix)//'.XX for program CASINO'
+pw2casino_write.f90:      WRITE (6,'(a)')
+pw2casino_write.f90:         IF(dowrite)THEN
+pw2casino_write.f90:            WRITE (6,'(a)')'Blip grid: '//trim(i2s(blipgrid(1)))//'x'//trim(i2s(blipgrid(2)))//'x'//trim(i2s(blipgrid(3)))
+pw2casino_write.f90:            WRITE (6,'(a)')
+pw2casino_write.f90:      ELSEIF(dowrite)THEN
+pw2casino_write.f90:   ELSEIF(dowrite)THEN
+pw2casino_write.f90:   IF(dowrite)THEN
+pw2casino_write.f90:      CALL write_header
+pw2casino_write.f90:         CALL write_gvecs_blip
+pw2casino_write.f90:         CALL write_gvecs(g_g,indx)
+pw2casino_write.f90:         CALL write_gvecs(g_l,indx)
+pw2casino_write.f90:      CALL write_wfn_head
+pw2casino_write.f90:   IF(dowrite.and.blip.and.binwrite)THEN
+pw2casino_write.f90:   IF(ionode_id/=0)CALL errore('write_casino_wfn','ionode_id/=0: ',ionode_id)
+pw2casino_write.f90:                        IF(ionode)WRITE(6,*)"Transformed real orbital k="//trim(i2s(jk(inode+1)))//&
+pw2casino_write.f90:                           IF(ionode)WRITE(6,*)"Transformed real orbital k="//trim(i2s(jk2(inode+1)))//&
+pw2casino_write.f90:                        IF(ionode)WRITE(6,*)"Transformed complex orbital k="//trim(i2s(jk(inode+1)))//&
+pw2casino_write.f90:                        IF(ionode)CALL write_bwfn_data_gamma(1,jk(inode+1),jspin(inode+1),jbnd(inode+1))
+pw2casino_write.f90:                           IF(ionode)CALL write_bwfn_data_gamma(2,jk2(inode+1),jspin2(inode+1),jbnd2(inode+1))
+pw2casino_write.f90:                        IF(ionode)CALL write_bwfn_data(jk(inode+1),jspin(inode+1),jbnd(inode+1))
+pw2casino_write.f90:               IF(dowrite)CALL write_pwfn_data(ik,ispin,ibnd,evc_g,indx)
+pw2casino_write.f90:               CALL write_pwfn_data(ik,ispin,ibnd,evc_l,indx)
+pw2casino_write.f90:   IF(dowrite)THEN
+pw2casino_write.f90:      IF(binwrite)THEN
+pw2casino_write.f90:   IF(dowrite.and.blip.and.binwrite)THEN
+pw2casino_write.f90:   IF(dowrite.and..not.blip) DEALLOCATE (indx)
+pw2casino_write.f90:         WRITE (stdout,'(5X,"Etot: ",f15.8," Ry from PWscf vs ", &
+pw2casino_write.f90:      WRITE (stdout,*)
+pw2casino_write.f90:      WRITE (stdout,*) 'Energies determined by pw2casino tool'
+pw2casino_write.f90:      WRITE (stdout,*) '-------------------------------------'
+pw2casino_write.f90:      WRITE (stdout,*) 'Kinetic energy   ', ek/e2, ' au  =  ', ek, ' Ry'
+pw2casino_write.f90:      WRITE (stdout,*) 'Local energy     ', eloc/e2, ' au  =  ', eloc, ' Ry'
+pw2casino_write.f90:      WRITE (stdout,*) 'Non-Local energy ', enl/e2, ' au  =  ', enl, ' Ry'
+pw2casino_write.f90:      WRITE (stdout,*) 'Ewald energy     ', ewld/e2, ' au  =  ', ewld, ' Ry'
+pw2casino_write.f90:      WRITE (stdout,*) 'xc contribution  ',(etxc-etxcc)/e2, ' au  =  ', etxc-etxcc, ' Ry'
+pw2casino_write.f90:      WRITE (stdout,*) 'hartree energy   ', ehart/e2, ' au  =  ', ehart, ' Ry'
+pw2casino_write.f90:           WRITE (stdout,*) 'EXX energy       ', fock2/e2, ' au  =  ', fock2, ' Ry' 
+pw2casino_write.f90:         WRITE (stdout,*) 'Smearing (-TS)   ', demet/e2, ' au  =  ', demet, ' Ry'
+pw2casino_write.f90:      WRITE (stdout,*) 'Total energy     ', etot/e2, ' au  =  ', etot, ' Ry'
+pw2casino_write.f90:      WRITE (stdout,*)
+pw2casino_write.f90:! Write out the overlaps of the value, gradient and Laplacian of the blip !
+pw2casino_write.f90:         WRITE(stdout,*)'Error: need at least two overlap tests, to estimate error bars.'
+pw2casino_write.f90:         char12_arr(k)=trim(write_mean(av(k),err(k)))
+pw2casino_write.f90:         IF(index(char12_arr(k),')')==0)WRITE(char12_arr(k),'(f12.9)')av(k)
+pw2casino_write.f90:      WRITE(stdout,'(2(1x,a),2x,3(1x,a))')char12_arr(1:5)
+pw2casino_write.f90:   SUBROUTINE write_header
+pw2casino_write.f90:      IF(blip.and.binwrite)THEN
+pw2casino_write.f90:         WRITE(iob)&
+pw2casino_write.f90:         WRITE(iob)&
+pw2casino_write.f90:         WRITE(iob)single_precision_blips                    ! single_precision_blips
+pw2casino_write.f90:         WRITE(iob)&
+pw2casino_write.f90:      WRITE(io,'(a)') title
+pw2casino_write.f90:      WRITE(io,'(a)')
+pw2casino_write.f90:      WRITE(io,'(a)') ' BASIC INFO'
+pw2casino_write.f90:      WRITE(io,'(a)') ' ----------'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Generated by:'
+pw2casino_write.f90:      WRITE(io,'(a)') '  PWSCF'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Method:'
+pw2casino_write.f90:      WRITE(io,'(a)') '  DFT'
+pw2casino_write.f90:      WRITE(io,'(a)') ' DFT Functional:'
+pw2casino_write.f90:      WRITE(io,'(a)') '  unknown'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Pseudopotential'
+pw2casino_write.f90:      WRITE(io,'(a)') '  unknown'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Plane wave cutoff (au)'
+pw2casino_write.f90:      WRITE(io,*) ecutwfc/2
+pw2casino_write.f90:      WRITE(io,'(a)') ' Spin polarized:'
+pw2casino_write.f90:      WRITE(io,*)lsda
+pw2casino_write.f90:         WRITE(io,'(a)') ' Total energy (au per primitive cell; includes -TS term)'
+pw2casino_write.f90:         WRITE(io,*)etot/e2, demet/e2
+pw2casino_write.f90:         WRITE(io,'(a)') ' Total energy (au per primitive cell)'
+pw2casino_write.f90:         WRITE(io,*)etot/e2
+pw2casino_write.f90:      WRITE(io,'(a)') ' Kinetic energy (au per primitive cell)'
+pw2casino_write.f90:      WRITE(io,*)ek/e2
+pw2casino_write.f90:      WRITE(io,'(a)') ' Local potential energy (au per primitive cell)'
+pw2casino_write.f90:      WRITE(io,*)eloc/e2
+pw2casino_write.f90:      WRITE(io,'(a)') ' Non local potential energy(au per primitive cell)'
+pw2casino_write.f90:      WRITE(io,*)enl/e2
+pw2casino_write.f90:      WRITE(io,'(a)') ' Electron electron energy (au per primitive cell)'
+pw2casino_write.f90:      WRITE(io,*)ehart/e2
+pw2casino_write.f90:      WRITE(io,'(a)') ' Ion-ion energy (au per primitive cell)'
+pw2casino_write.f90:      WRITE(io,*)ewld/e2
+pw2casino_write.f90:      WRITE(io,'(a)') ' Number of electrons per primitive cell'
+pw2casino_write.f90:      WRITE(io,*)nint(nelec)
+pw2casino_write.f90:      !  WRITE(io,'(a)') ' Fermi energy (au)'
+pw2casino_write.f90:      !  WRITE(io,*) ef/e2
+pw2casino_write.f90:      WRITE(io,'(a)') ' '
+pw2casino_write.f90:      WRITE(io,'(a)') ' GEOMETRY'
+pw2casino_write.f90:      WRITE(io,'(a)') ' -------- '
+pw2casino_write.f90:      WRITE(io,'(a)') ' Number of atoms per primitive cell '
+pw2casino_write.f90:      WRITE(io,*) nat
+pw2casino_write.f90:      WRITE(io,'(a)')' Atomic number and position of the atoms(au) '
+pw2casino_write.f90:         WRITE(io,'(i6,3f20.14)') at_num, (alat*tau(j,na),j=1,3)
+pw2casino_write.f90:      WRITE(io,'(a)') ' Primitive lattice vectors (au) '
+pw2casino_write.f90:      WRITE(io,100) alat*at(1,1), alat*at(2,1), alat*at(3,1)
+pw2casino_write.f90:      WRITE(io,100) alat*at(1,2), alat*at(2,2), alat*at(3,2)
+pw2casino_write.f90:      WRITE(io,100) alat*at(1,3), alat*at(2,3), alat*at(3,3)
+pw2casino_write.f90:      WRITE(io,'(a)') ' '
+pw2casino_write.f90:   END SUBROUTINE write_header
+pw2casino_write.f90:   SUBROUTINE write_gvecs(g,indx)
+pw2casino_write.f90:      IF(binwrite)RETURN
+pw2casino_write.f90:      WRITE(io,'(a)') ' G VECTORS'
+pw2casino_write.f90:      WRITE(io,'(a)') ' ---------'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Number of G-vectors'
+pw2casino_write.f90:      WRITE(io,*) size(g,2)
+pw2casino_write.f90:      WRITE(io,'(a)') ' Gx Gy Gz (au)'
+pw2casino_write.f90:         WRITE(io,'(3(1x,f20.15))') &
+pw2casino_write.f90:      WRITE(io,'(a)') ' '
+pw2casino_write.f90:   END SUBROUTINE write_gvecs
+pw2casino_write.f90:   SUBROUTINE write_gvecs_blip
+pw2casino_write.f90:      IF(binwrite)RETURN
+pw2casino_write.f90:      WRITE(io,'(a)') ' G VECTORS'
+pw2casino_write.f90:      WRITE(io,'(a)') ' ---------'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Number of G-vectors'
+pw2casino_write.f90:      WRITE(io,*) 0
+pw2casino_write.f90:      WRITE(io,'(a)') ' Gx Gy Gz (au)'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Blip grid'
+pw2casino_write.f90:      WRITE(io,'(3(1x,3i4))') blipgrid
+pw2casino_write.f90:      WRITE(io,'(a)') ' '
+pw2casino_write.f90:   END SUBROUTINE write_gvecs_blip
+pw2casino_write.f90:   SUBROUTINE write_wfn_head
+pw2casino_write.f90:      IF(binwrite)RETURN
+pw2casino_write.f90:      WRITE(io,'(a)') ' WAVE FUNCTION'
+pw2casino_write.f90:      WRITE(io,'(a)') ' -------------'
+pw2casino_write.f90:      WRITE(io,'(a)') ' Number of k-points'
+pw2casino_write.f90:      WRITE(io,*) nk
+pw2casino_write.f90:   END SUBROUTINE write_wfn_head
+pw2casino_write.f90:   SUBROUTINE write_pwfn_data(ik,ispin,ibnd,evc,indx)
+pw2casino_write.f90:      IF(binwrite)RETURN
+pw2casino_write.f90:         WRITE(io,'(a)') ' k-point # ; # of bands (up spin/down spin); &
+pw2casino_write.f90:         WRITE(io,'(3i4,3f20.16)') ik, nbndup, nbnddown, &
+pw2casino_write.f90:      IF(binwrite)RETURN
+pw2casino_write.f90:      WRITE(io,'(a)') ' Band, spin, eigenvalue (au)'
+pw2casino_write.f90:      WRITE(io,*) ibnd, ispin, et(ibnd,ikk)/e2
+pw2casino_write.f90:      ! WRITE(io,'(a)') ' Band, spin, eigenvalue (au), occupation number'
+pw2casino_write.f90:      ! WRITE(io,*) ibnd, ispin, et(ibnd,ikk)/e2, wg(ibnd,ikk)/wk(ikk)
+pw2casino_write.f90:      WRITE(io,'(a)') ' Eigenvectors coefficients'
+pw2casino_write.f90:         WRITE(io,*)evc(indx(ig))
+pw2casino_write.f90:   END SUBROUTINE write_pwfn_data
+pw2casino_write.f90:   SUBROUTINE write_bwfn_data(ik,ispin,ibnd)
+pw2casino_write.f90:      IF(binwrite)THEN
+pw2casino_write.f90:            WRITE(iob)cmplx(cavc_tmp(:,:,:),kind=sgl)
+pw2casino_write.f90:            WRITE(iob)cmplx(cavc_tmp(:,:,:),kind=DP)
+pw2casino_write.f90:         WRITE(io,'(a)') ' k-point # ; # of bands (up spin/down spin); &
+pw2casino_write.f90:         WRITE(io,'(3i4,3f20.16)') ik, nbndup, nbnddown, &
+pw2casino_write.f90:      WRITE(io,'(a)') ' Band, spin, eigenvalue (au), localized'
+pw2casino_write.f90:      WRITE(io,*) ibnd, ispin, et(ibnd,ikk)/e2,'F'
+pw2casino_write.f90:      ! WRITE(io,'(a)') ' Band, spin, eigenvalue (au), occupation number'
+pw2casino_write.f90:      ! WRITE(io,*) ibnd, ispin, et(ibnd,ikk)/e2, wg(ibnd,ikk)/wk(ikk)
+pw2casino_write.f90:      WRITE(io,*)'Complex blip coefficients for extended orbital'
+pw2casino_write.f90:               WRITE(io,*)cavc(lx,ly,lz)
+pw2casino_write.f90:   END SUBROUTINE write_bwfn_data
+pw2casino_write.f90:   SUBROUTINE write_bwfn_data_gamma(re_im,ik,ispin,ibnd)
+pw2casino_write.f90:      IF(binwrite)THEN
+pw2casino_write.f90:            WRITE(iob)real(avc_tmp(:,:,:),kind=sgl)
+pw2casino_write.f90:            WRITE(iob)real(avc_tmp(:,:,:),kind=DP)
+pw2casino_write.f90:         WRITE(io,'(a)') ' k-point # ; # of bands (up spin/down spin); &
+pw2casino_write.f90:         WRITE(io,'(3i4,3f20.16)') ik, nbndup, nbnddown, &
+pw2casino_write.f90:      WRITE(io,'(a)') ' Band, spin, eigenvalue (au), localized'
+pw2casino_write.f90:      WRITE(io,*) ibnd, ispin, et(ibnd,ikk)/e2,'F'
+pw2casino_write.f90:      ! WRITE(io,'(a)') ' Band, spin, eigenvalue (au), occupation number'
+pw2casino_write.f90:      ! WRITE(io,*) ibnd, ispin, et(ibnd,ikk)/e2, wg(ibnd,ikk)/wk(ikk)
+pw2casino_write.f90:      WRITE(io,*)'Real blip coefficients for extended orbital'
+pw2casino_write.f90:                  WRITE(io,*)avc1(lx,ly,lz)
+pw2casino_write.f90:                  WRITE(io,*)avc2(lx,ly,lz)
+pw2casino_write.f90:   END SUBROUTINE write_bwfn_data_gamma
+pw2casino_write.f90:               WRITE(6,*)'stacksize is too small.'
+pw2casino_write.f90:   CHARACTER(72) FUNCTION write_mean(av,std_err_in_mean,err_prec_in)
+pw2casino_write.f90:! Write out a mean value with the standard error in the mean in the form      !
+pw2casino_write.f90:         write_mean='ERROR: NON-POSITIVE ERROR BAR!!!'
+pw2casino_write.f90:            write_mean='ERROR: NON-POSITIVE PRECISION!!!'
+pw2casino_write.f90:         write_mean='ERROR: BUG IN WRITE_MEAN!!!'
+pw2casino_write.f90:         write_mean='ERROR: NUMBERS ARE TOO LARGE IN WRITE_MEAN!'
+pw2casino_write.f90:            write_mean='ERROR: NUMBERS ARE TOO LARGE IN WRITE_MEAN!'
+pw2casino_write.f90:            write_mean='ERROR: BUG IN WRITE_MEAN! (2)'
+pw2casino_write.f90:         write_mean=sgn//trim(i2s(int_part))//'.'//trim(zero_pad) &
+pw2casino_write.f90:         write_mean=sgn//trim(i2s(int_part))//'(' &
+pw2casino_write.f90:   END FUNCTION write_mean
+pw2casino_write.f90:END SUBROUTINE write_casino_wfn
+pw_restart.f90:  ! ... this module contains methods to read and write data produced by PWscf
+pw_restart.f90:                          qexml_write_header, qexml_write_control ,   &
+pw_restart.f90:                          qexml_write_cell, qexml_write_moving_cell,  &
+pw_restart.f90:                          qexml_write_ions, qexml_write_symmetry,     &
+pw_restart.f90:                          qexml_write_efield, qexml_write_planewaves, &
+pw_restart.f90:                          qexml_write_spin, qexml_write_magnetization, &
+pw_restart.f90:                          qexml_write_xc, qexml_write_exx, qexml_write_occ, &
+pw_restart.f90:                          qexml_write_bz,qexml_write_para, qexml_write_bands_info, &
+pw_restart.f90:                          qexml_write_bands_pw, qexml_write_esm, qexml_wfc_filename, &
+pw_restart.f90:  USE xml_io_base, ONLY :  rho_binary,read_wfc, write_wfc, create_directory
+pw_restart.f90:  PUBLIC :: pw_writefile, pw_readfile
+pw_restart.f90:    SUBROUTINE pw_writefile( what )
+pw_restart.f90:      USE io_rho_xml,           ONLY : write_rho
+pw_restart.f90:         ! ... do not overwrite the scf charge density with a non-scf one
+pw_restart.f90:         ! ... write just the xml data file, not the charge density and the wavefunctions
+pw_restart.f90:         CALL errore( 'pw_writefile', 'unexpected case: '//TRIM(what), 1 )
+pw_restart.f90:      CALL errore( 'pw_writefile ', &
+pw_restart.f90:                   'no free units to write wavefunctions', ierr )
+pw_restart.f90:      ! ... define a further l2g map to write gkvectors and wfc coherently
+pw_restart.f90:                              'write', BINARY = .FALSE., IERR = ierr  )
+pw_restart.f90:            CALL iotk_open_write( iunout, FILE = TRIM( dirname ) // '/' // &
+pw_restart.f90:      CALL errore( 'pw_writefile ', &
+pw_restart.f90:         CALL qexml_write_header( "PWSCF", TRIM(version_number) )
+pw_restart.f90:         CALL qexml_write_control( PP_CHECK_FLAG=conv_ions, LKPOINT_DIR=lkpoint_dir, &
+pw_restart.f90:         CALL qexml_write_cell( ibrav, celldm, alat, &
+pw_restart.f90:         IF (lmovecell) CALL qexml_write_moving_cell(lmovecell, cell_factor)
+pw_restart.f90:         CALL qexml_write_ions( nsp, nat, atm, ityp, psfile, &
+pw_restart.f90:         CALL qexml_write_symmetry( ibrav, nrot, nsym, invsym, noinv, &
+pw_restart.f90:         CALL qexml_write_efield( tefield, dipfield, edir, emaxpos, eopreg, eamp) 
+pw_restart.f90:         CALL qexml_write_planewaves( ecutwfc/e2, ecutwfc*dual/e2, npwx_g, gamma_only, &
+pw_restart.f90:         CALL qexml_write_spin( lsda, noncolin, npol, lspinorb, domag )
+pw_restart.f90:         CALL qexml_write_magnetization(starting_magnetization, &
+pw_restart.f90:         CALL qexml_write_xc( DFT = dft_name, NSP = nsp, LDA_PLUS_U = lda_plus_u,      &
+pw_restart.f90:         IF ( dft_is_hybrid() ) CALL qexml_write_exx &
+pw_restart.f90:         CALL qexml_write_esm( esm_nfit, esm_efield, esm_w, esm_a, esm_bc )
+pw_restart.f90:         CALL qexml_write_occ( LGAUSS = lgauss, NGAUSS = ngauss, &
+pw_restart.f90:         CALL qexml_write_bz( num_k_points, xk, wk, k1, k2, k3, nk1, nk2, nk3, &
+pw_restart.f90:         CALL qexml_write_para( kunit, nproc, nproc_pool, nproc_image, &
+pw_restart.f90:         CALL qexml_write_bands_info(  num_k_points, natomwfc, &
+pw_restart.f90:         CALL qexml_write_bands_pw( nbnd, num_k_points, nspin, xk, wk, wg,et/e2,"Hartree" , lkpoint_dir , iunout , dirname )
+pw_restart.f90:         IF (.NOT. lkpoint_dir ) CALL iotk_close_write( iunout )
+pw_restart.f90:         CALL iotk_write_begin( iunpun, "EIGENVECTORS" )
+pw_restart.f90:         CALL iotk_write_dat  ( iunpun, "MAX_NUMBER_OF_GK-VECTORS", npwx_g )
+pw_restart.f90:            CALL iotk_write_begin( iunpun, "K-POINT" // TRIM( iotk_index( ik ) ) )
+pw_restart.f90:            CALL iotk_write_dat( iunpun, "NUMBER_OF_GK-VECTORS", ngk_g(ik) )
+pw_restart.f90:            IF ( .NOT. smallmem ) CALL write_gk( iunout, ik, filename )
+pw_restart.f90:            CALL write_this_wfc ( iunout, ik )
+pw_restart.f90:            CALL iotk_write_end( iunpun, "K-POINT" // TRIM( iotk_index(ik) ) )
+pw_restart.f90:         CALL iotk_write_end( iunpun, "EIGENVECTORS" )
+pw_restart.f90:         CALL qexml_closefile( 'write', IERR=ierr)
+pw_restart.f90:      ! ... do not overwrite the scf charge density with a non-scf one
+pw_restart.f90:      ! ... also writes rho%ns if lda+U and rho%bec if PAW
+pw_restart.f90:      IF ( lscf ) CALL write_rho( rho, nspin )
+pw_restart.f90:      CALL errore( 'pw_writefile ', &
+pw_restart.f90:        SUBROUTINE write_gk( iun, ik, filename )
+pw_restart.f90:             CALL iotk_open_write( iun, FILE = TRIM( filename ), &
+pw_restart.f90:             CALL iotk_write_dat( iun, "NUMBER_OF_GK-VECTORS", ngk_g(ik) )
+pw_restart.f90:             CALL iotk_write_dat( iun, "MAX_NUMBER_OF_GK-VECTORS", npwx_g )
+pw_restart.f90:             CALL iotk_write_dat( iun, "GAMMA_ONLY", gamma_only )
+pw_restart.f90:             CALL iotk_write_attr ( attr, "UNITS", "2 pi / a", FIRST = .TRUE. )
+pw_restart.f90:             CALL iotk_write_dat( iun, "K-POINT_COORDS", xk(:,ik), ATTR = attr )
+pw_restart.f90:             CALL iotk_write_dat( iun, "INDEX", igwk(1:ngk_g(ik),ik) )
+pw_restart.f90:             CALL iotk_write_dat( iun, "GRID", mill_g(1:3,igwk(1:ngk_g(ik),ik)), &
+pw_restart.f90:             CALL iotk_close_write( iun )
+pw_restart.f90:        END SUBROUTINE write_gk
+pw_restart.f90:        SUBROUTINE write_this_wfc ( iun, ik )
+pw_restart.f90:             CALL write_wfc( iunout, ik, nkstot, kunit, ispin, nspin, &
+pw_restart.f90:             CALL write_wfc( iunout, ik_eff, nkstot, kunit, ispin, nspin, &
+pw_restart.f90:                   CALL write_wfc( iunout, ik, nkstot, kunit, ipol, npol,   &
+pw_restart.f90:                CALL write_wfc( iunout, ik, nkstot, kunit, ispin, nspin, &
+pw_restart.f90:       END SUBROUTINE write_this_wfc
+pw_restart.f90:    END SUBROUTINE pw_writefile
+pw_restart.f90:      ! ... writes them into the old format
+pw_restart.f90:               ! WRITE(200+10*ik+me_pool,fmt="(2D18.10)") evc
+rcgdiagg.f90:        WRITE(stdout,'("e(",i4,") = ",f12.6," eV  (not converged after ",i3,&
+rcgdiagg.f90:        WRITE(stdout,'("e(",i4,") = ",f12.6," eV  (",i3," iterations)")') &
+read_conf_from_file.f90:  WRITE( stdout, '(/5X,"Atomic positions and unit cell read from directory:", &
+read_conf_from_file.f90:     WRITE( stdout, '(5X,"Nothing found: ", &
+read_conf_from_file.f90:  WRITE( stdout, * )
+read_file.f90:  IF ( ionode ) WRITE( stdout, '(/,5x,A,/,5x,A)') &
+read_file.f90:  ! ... Read orbitals, write them in 'distributed' form to iunwfc
+read_file.f90:    IF( ionode ) WRITE(stdout,'(5x,"Real space initialisation completed")')
+realus.f90:      WRITE(stdout, '(/,5x,a)') "Initializing real-space augmentation for DENSE grid"
+realus.f90:          WRITE(stdout, '(5x,a)') "Initializing real-space augmentation for SMOOTH grid"
+realus.f90:          WRITE(stdout, '(7x,a)') " SMOOTH grid -> DENSE grid"
+realus.f90:         WRITE(stdout,'("Debug level forced tqr to be set false")')
+realus.f90:         WRITE(stdout,'("tqr was already set false")')
+realus.f90:          WRITE (msg,'("expected ",f10.6,", found ",f10.6)') &
+regterg.f90:           WRITE( stdout, '(5X,"WARNING: ",I5, &
+regterg.f90:           WRITE( stdout, '(5X,"WARNING: ",I5, &
+remove_atomic_rho.f90:  USE io_rho_xml, ONLY : write_rho
+remove_atomic_rho.f90:  WRITE( stdout, '(/5x,"remove atomic charge density from scf rho")')
+remove_atomic_rho.f90:  call write_rho ( work, 1, output_drho )
+report_mag.f90:         write(stdout,*)
+report_mag.f90:         write(stdout,'(5X,''Magnetic moment per site:'')')
+report_mag.f90:            WRITE( stdout,1010)
+report_mag.f90:            WRITE( stdout,1011) iat,(tau(ipol,iat),ipol=1,3)
+report_mag.f90:            WRITE( stdout,1014) r1_loc (iat)
+report_mag.f90:            WRITE( stdout,1012) (m1_loc(ipol,iat),ipol=1,3)
+report_mag.f90:            WRITE( stdout,1018) (m1_loc(ipol,iat)/r1_loc(iat),ipol=1,3)
+report_mag.f90:            WRITE( stdout,1013) norm,theta,phi
+report_mag.f90:               WRITE( stdout,1015) (mcons(ipol,ityp(iat)),ipol=1,3)
+report_mag.f90:               WRITE( stdout,1017) 180.d0 * acos(mcons(3,ityp(iat)))/pi
+report_mag.f90:            WRITE( stdout,1010)
+report_mag.f90:            WRITE(stdout,1020) iat, r1_loc(iat), m1_loc(1,iat), mcons(1,ityp(iat))
+restart_in_electrons.f90:           WRITE( stdout, &
+rho2zeta.f90:     WRITE( stdout , '(5X,"iop = ",I5)' ) iop
+run_pwscf.f90:  IF ( ionode ) WRITE( unit = stdout, FMT = 9010 ) ntypx, npk, lmaxx
+run_pwscf.f90:  !     overridden without needing to write PWscf specific code.
+run_pwscf.f90:  IF ( gamma_only ) WRITE( UNIT = stdout, &
+save_in_cbands.f90:  WRITE(stdout,'(5x,"Calculation stopped in k-point loop, point #",i6)') ik
+save_in_cbands.f90:  WRITE (iunres, *) ik, ethr, avg_iter
+save_in_cbands.f90:  WRITE (iunres, *) et(1:nbnd,1:nks)
+save_in_cbands.f90:              WRITE( stdout, &
+save_in_cbands.f90:              WRITE( stdout, &
+save_in_electrons.f90:  WRITE(stdout,'(5x,"Calculation stopped in scf loop at iteration #",i6)') iter
+save_in_electrons.f90:  WRITE (iunres, *) iter, dr2, ethr
+save_in_electrons.f90:  WRITE (iunres, *) et(1:nbnd,1:nks)
+scale_h.f90:     WRITE( stdout, '(5x,a)' ) 'NEW k-points:'
+scale_h.f90:        WRITE( stdout, '(3f12.7,f12.7)') (xk (ipol, ik) , ipol = 1, 3) , wk (ik)
+scale_h.f90:     WRITE( stdout, '(5x,a)' ) "NEW k-points: (use verbosity='high' to print them)"
+scf_mod.f90:!  write (*,*) rho1%kin_g(1:4,1)
+set_rhoc.f90:       WRITE( stdout, '(/5x,"Check: negative/imaginary core charge=",2f12.6)')&
+set_rhoc.f90:  !   WRITE( stdout, 9000) etxcc
+set_rhoc.f90:  !   WRITE( stdout,  * ) 'BEWARE it will be subtracted from total energy !'
+setup.f90:     WRITE( stdout, '(/,5X,"Subspace diagonalization in iterative solution ",&
+setup.f90:        WRITE( stdout, '(5X,"ELPA distributed-memory algorithm ", &
+setup.f90:        WRITE( stdout, '(5X,"scalapack distributed-memory algorithm ", &
+setup.f90:        WRITE( stdout, '(5X,"custom distributed-memory algorithm ", &
+setup.f90:        WRITE( stdout, '(5X,"a serial algorithm will be used",/)' )
+sph_ind.f90:   write(6,*) l, j
+stop_run.f90:  WRITE( stdout,'(5X,"Signal Received, stopping ... ")')
+stres_hub.f90:            WRITE( stdout,'(a,2i3)') 'NS(NA,IS) ', na,is
+stres_hub.f90:               WRITE( stdout,'(7f10.4)') (v%ns(m1,m2,is,na),m2=1,ldim)
+stres_hub.f90:                  WRITE( stdout,'(a,4i3)') 'DNS(IPOL,JPOL,NA,IS) ', ipol,jpol,na,is
+stres_hub.f90:                  WRITE( stdout,'(5f10.4)') ((dns(m1,m2,is,na),m2=1,5),m1=1,5)
+stres_hub.f90:             write (stdout,'(2i3,2f12.7)') ipol,jpol,sigmah(ipol,jpol), &
+stres_loc.f90:  !      WRITE( 6,*) ' evloc ', evloc, evloc*omega   ! DEBUG
+stress.f90:  WRITE( stdout, '(//5x,"entering subroutine stress ..."/)')
+stress.f90:  ! write results in Ryd/(a.u.)^3 and in kbar
+stress.f90:  WRITE( stdout, 9000) (sigma(1,1) + sigma(2,2) + sigma(3,3)) * ry_kbar/3d0, &
+stress.f90:  if ( iverbosity > 0 ) WRITE( stdout, 9005) &
+stress.f90:  IF ( dft_is_hybrid() .AND. (iverbosity > 0) ) WRITE( stdout, 9006) &
+stress.f90:     write(stdout,*) "Stress tensor electronic el field part:"
+stress.f90:     write(stdout,*) (sigmael(l,1),sigmael(l,2),sigmael(l,3), l=1,3)
+stress.f90:     write(stdout,*) "Stress tensor electronic el field part:"
+stress.f90:     write(stdout,*) (sigmaion(l,1),sigmaion(l,2),sigmaion(l,3), l=1,3)
+summary.f90:  !    This routine writes on output all the information obtained from
+summary.f90:  USE funct,           ONLY : write_dft_name, dft_is_hybrid
+summary.f90:  IF ( title /= ' ') WRITE( stdout, "(/,5X,'Title: ',/,5X,A75)" ) title
+summary.f90:  WRITE( stdout, 100) ibrav, alat, omega, nat, ntyp
+summary.f90:     WRITE( stdout, 101) nelec, nelup, neldw
+summary.f90:     WRITE( stdout, 102) nelec
+summary.f90:  WRITE( stdout, 103) nbnd, ecutwfc, ecutrho
+summary.f90:  IF ( dft_is_hybrid () ) WRITE( stdout, 104) ecutfock
+summary.f90:  IF ( lscf) WRITE( stdout, 105) tr2, mixing_beta, nmix, mixing_style
+summary.f90:  call write_dft_name ( ) 
+summary.f90:     WRITE( stdout, '(5X,"nstep                     = ",I12,/)' ) nstep
+summary.f90:           WRITE( stdout, '(5X, "Noncollinear calculation with spin-orbit",/)')
+summary.f90:           WRITE( stdout, '(5X, "Non magnetic calculation with spin-orbit",/)')
+summary.f90:        WRITE( stdout, '(5X, "Noncollinear calculation without spin-orbit",/)')
+summary.f90:     WRITE( stdout, 110 ) ecfixed, qcutz, q2sigma
+summary.f90:  IF ( do_comp_mt )  WRITE( stdout, &
+summary.f90:     WRITE(stdout, *)
+summary.f90:     WRITE(stdout, '("     Using Berry phase electric field")')
+summary.f90:        WRITE(stdout, '("     Direction :", i4)') gdir
+summary.f90:        WRITE(stdout, '("     Intensity (Ry a.u.) :", f13.10)') efield
+summary.f90:        WRITE(stdout, '("     Strings composed by:", i5," k-points")') nppstr_3d(gdir)
+summary.f90:        write(stdout,'("     In a.u.(Ry)  cartesian system of reference" )')
+summary.f90:           write(stdout,'(7x,f13.10)') efield_cart(i)
+summary.f90:        write(stdout,'("     In a.u.(Ry)  crystal system of reference" )')
+summary.f90:           write(stdout,'(7x,f13.10)') efield_cry(i)
+summary.f90:     WRITE(stdout, '("     Number of iterative cycles:", i4)') nberrycyc
+summary.f90:     WRITE(stdout, *)
+summary.f90:  WRITE( stdout, '(/2(3X,3(2X,"celldm(",I1,")=",F11.6),/))' ) &
+summary.f90:  WRITE( stdout, '(5X, &
+summary.f90:  WRITE( stdout, '(5x, &
+summary.f90:  WRITE( stdout, '(/5x, "atomic species   valence    mass     pseudopotential")')
+summary.f90:     WRITE( stdout, '(5x,a6,6x,f10.2,2x,f10.5,5x,5 (a2,"(",f5.2,")"))') &
+summary.f90:     WRITE( stdout, '(/5x," cell mass =", f10.5, " AMU ")') cmass/amu_ry
+summary.f90:     WRITE( stdout, '(/5x," cell mass =", f10.5, " AMU/(a.u.)^2 ")') cmass/amu_ry
+summary.f90:     WRITE( stdout, '(/5x,"Starting magnetic structure ", &
+summary.f90:        WRITE( stdout, '(5x,a6,9x,f6.3)') atm(nt), starting_magnetization(nt)
+summary.f90:        WRITE( stdout, '(/,/,5x,"Simplified LDA+U calculation (l_max = ",i1, &
+summary.f90:        WRITE( stdout, '(5x,A)') &
+summary.f90:              WRITE( stdout,'(5x,a6,12x,i1,2x,4f9.4)') atm(nt), Hubbard_L(nt), &
+summary.f90:        WRITE( stdout, '(/,/,5x,"Full LDA+U calculation (l_max = ",i1, &
+summary.f90:                 WRITE (stdout,'(5x,a,i2,a,f12.8)') &
+summary.f90:                 WRITE (stdout,'(5x,2(a,i3,a,f9.4,3x))') &
+summary.f90:                 WRITE (stdout,'(5x,3(a,i3,a,f9.4,3x))') &
+summary.f90:                 WRITE (stdout,'(5x,4(a,i3,a,f9.4,3x))') &
+summary.f90:           WRITE(stdout, '(5x,"LDA+U on averaged j=l+1/2,l-1/2 radial WFs")')
+summary.f90:      WRITE( stdout,'(/)')
+summary.f90:  WRITE( stdout, '(/,3x,"Cartesian axes")')
+summary.f90:  WRITE( stdout, '(/,5x,"site n.     atom                  positions (alat units)")')
+summary.f90:  WRITE( stdout, '(6x,i4,8x,a6," tau(",i4,") = (",3f12.7,"  )")') &
+summary.f90:     WRITE( stdout, '(/,3x,"Crystallographic axes")')
+summary.f90:     WRITE( stdout, '(/,5x,"site n.     atom        ", &
+summary.f90:     WRITE( stdout, '(6x,i4,8x,a6," tau(",i4,") = (",3f11.7,"  )")') &
+summary.f90:     WRITE( stdout, '(/5x,"number of k points=", i6, 2x, &
+summary.f90:     WRITE( stdout,'(/5x,"number of k points=",i6, &
+summary.f90:     WRITE( stdout, '(/5x,"number of k points=",i6)') nkstot
+summary.f90:     WRITE( stdout, '(23x,"cart. coord. in units 2pi/alat")')
+summary.f90:        WRITE( stdout, '(8x,"k(",i5,") = (",3f12.7,"), wk =",f12.7)') ik, &
+summary.f90:     WRITE( stdout, '(/5x,a)') &
+summary.f90:     WRITE( stdout, '(/23x,"cryst. coord.")')
+summary.f90:        WRITE( stdout, '(8x,"k(",i5,") = (",3f12.7,"), wk =",f12.7)') &
+summary.f90:  WRITE( stdout, '(/5x,"Dense  grid: ",i8," G-vectors", 5x, &
+summary.f90:     WRITE( stdout, '(/5x,"Smooth grid: ",i8," G-vectors", 5x, &
+summary.f90:  IF ( real_space ) WRITE( stdout, &
+summary.f90:  IF ( tqr ) WRITE( stdout, '(5x,"Real space treatment of Q(r)")' )
+summary.f90:     WRITE( stdout, '(/,5X,"Occupations read from input ")' ) 
+summary.f90:        WRITE(stdout, '(/,5X," Spin-up")' ) 
+summary.f90:        WRITE(stdout, '(/,(5X,8f9.4))') (f_inp(ibnd,1),ibnd=1,nbnd)
+summary.f90:        WRITE(stdout, '(/,5X," Spin-down")' ) 
+summary.f90:        WRITE(stdout, '(/,(5X,8f9.4))') (f_inp(ibnd,2),ibnd=1,nbnd)
+summary.f90:        WRITE(stdout, '(/,(5X,8f9.4))') (f_inp(ibnd,1), ibnd=1,nbnd)
+summary.f90:     WRITE( stdout, '(/5x,"PseudoPot. #",i2," for ",a2," read from file:", &
+summary.f90:     WRITE( stdout, '(5x,"MD5 check sum: ", a )') upf(nt)%md5_cksum
+summary.f90:     WRITE( stdout, '( 5x,"Pseudo is ",a,", Zval =",f5.1)') &
+summary.f90:     WRITE( stdout, '(5x,A)') TRIM(upf(nt)%generated)
+summary.f90:        WRITE( stdout, '(5x,a,a)') &
+summary.f90:        WRITE( stdout, '(5x,a,a)') "1/r Coulomb pseudo"
+summary.f90:     WRITE( stdout, '(5x,"Using radial grid of ", i4, " points, ", &
+summary.f90:           WRITE( stdout, '(15x," l(",i1,") = ",i3)') ib, upf(nt)%lll(ib)
+summary.f90:           WRITE( stdout, '(14x," l(",i2,") = ",i3)') ib, upf(nt)%lll(ib)
+summary.f90:           WRITE( stdout, '(5x,"Q(r) pseudized with 0 coefficients ",/)') 
+summary.f90:           WRITE( stdout, '(5x,"Q(r) pseudized with ", &
+summary.f90:     WRITE( stdout, '(/5x,"vdW kernel table read from file ",a)') TRIM (vdw_table_name)
+summary.f90:     WRITE( stdout, '(5x,"MD5 check sum: ", a )') vdw_kernel_md5_cksum
+summary.f90:     WRITE( stdout, '(/5x,"No symmetry found")')
+summary.f90:           WRITE( stdout, '(/5x,i2," Sym. Ops., with inversion, found ", &
+summary.f90:           WRITE( stdout, '(/5x,i2," Sym. Ops., with inversion, found")' )&
+summary.f90:           WRITE( stdout, '(/5x,i2," Sym. Ops. (no inversion) found ",&
+summary.f90:           WRITE( stdout,'(/5x,i2," Sym. Ops. (no inversion) found")' ) nsym
+summary.f90:      WRITE( stdout, '(10x,"(note: ",i2," additional sym.ops. were found ", &
+summary.f90:      WRITE( stdout, '(/)' )
+summary.f90:     WRITE( stdout, '(36x,"s",24x,"frac. trans.")')
+summary.f90:        WRITE( stdout, '(/6x,"isym = ",i2,5x,a45/)') isym, sname(isym)
+summary.f90:              WRITE(stdout,*) 'Time Reversal ', t_rev(isym)
+summary.f90:           WRITE( stdout, '(1x,"cryst.",3x,"s(",i2,") = (",3(i6,5x), &
+summary.f90:           WRITE( stdout, '(17x," (",3(i6,5x), " )       ( ",f10.7," )")') &
+summary.f90:           WRITE( stdout, '(17x," (",3(i6,5x), " )       ( ",f10.7," )"/)') &
+summary.f90:           WRITE( stdout, '(1x,"cart. ",3x,"s(",i2,") = (",3f11.7, &
+summary.f90:           WRITE( stdout, '(17x," (",3f11.7, " )       ( ",f10.7," )")') &
+summary.f90:           WRITE( stdout, '(17x," (",3f11.7, " )       ( ",f10.7," )"/)') &
+summary.f90:           WRITE( stdout, '(1x,"cryst.",3x,"s(",i2,") = (",3(i6,5x), " )")') &
+summary.f90:           WRITE( stdout, '(17x," (",3(i6,5x)," )")')  (s(2,ipol,isym), ipol=1,3)
+summary.f90:           WRITE( stdout, '(17x," (",3(i6,5x)," )"/)') (s(3,ipol,isym), ipol=1,3)
+summary.f90:           WRITE( stdout, '(1x,"cart. ",3x,"s(",i2,") = (",3f11.7," )")') &
+summary.f90:           WRITE( stdout, '(17x," (",3f11.7," )")')  (sr (2, ipol,isym) , ipol = 1, 3)
+summary.f90:           WRITE( stdout, '(17x," (",3f11.7," )"/)') (sr (3, ipol,isym) , ipol = 1, 3)
+summary.f90:     CALL write_group_info(.true.)
+symm_base.f90:              WRITE( stdout, '(5x,"Found symmetry operation: I + (",&
+symm_base.f90:        WRITE( stdout, '(5x,"warning: symmetry operation # ",i2, &
+symm_base.f90:        WRITE( stdout, '(3i4)') ( (s (i, j, irot) , j = 1, 3) , i = 1, 3)
+symm_base.f90:            !     WRITE( stdout, '(5x,"warning: symmetry operation", &
+symmetrize_at.f90:  write (stdout,*) " SYMMETRIZED ATOMIC COORDINATES "
+update_pot.f90:  USE io_rho_xml,           ONLY : write_rho, read_rho
+update_pot.f90:        WRITE( UNIT = stdout, FMT = '(5X, &
+update_pot.f90:        WRITE( UNIT = stdout, FMT = '(5X, &
+update_pot.f90:        WRITE( UNIT = stdout, FMT = '(5X, &
+update_pot.f90:        CALL write_rho( rho%of_r, 1, 'old' )
+update_pot.f90:        WRITE( UNIT = stdout, &
+update_pot.f90:        CALL write_rho( rho%of_r,  1, 'old' )
+update_pot.f90:        CALL write_rho( work, 1, 'old2' )
+update_pot.f90:        WRITE( UNIT = stdout, &
+update_pot.f90:        CALL write_rho( rho%of_r,  1, 'old' )
+update_pot.f90:        CALL write_rho( work, 1, 'old2' )
+update_pot.f90:     WRITE( stdout, &
+update_pot.f90:        WRITE( stdout, '(/5X,"first order wave-functions extrapolation")' )
+update_pot.f90:        WRITE( stdout, '(/5X,"second order wave-functions extrapolation")' )
+update_pot.f90:        WRITE( stdout, '( 5X,"Message from extrapolate_wfcs: ",/,  &
+update_pot.f90:     WRITE( UNIT = stdout, &
+vcsmd.f90:        WRITE( UNIT = stdout, FMT = '(/,5X,A,/,5X,"convergence achieved, ",&
+vcsmd.f90:           WRITE( UNIT = stdout, &
+vcsmd.f90:           WRITE( UNIT = stdout, &
+vcsmd.f90:           WRITE( UNIT = stdout, &
+vcsmd.f90:           WRITE( UNIT = stdout, &
+vcsmd.f90:        WRITE( stdout,'(/5X,A,/,5x,"convergence thresholds EPSE = ",ES8.2, &
+vcsmd.f90:  WRITE( stdout, '(/5X,"Entering Dynamics;  it = ",I5,"   time = ", &
+vcsmd.f90:     ! ... Dynamics: write to output files several control quantities
+vcsmd.f90:     WRITE( iun_e,   101 ) ut, ekint, edyn, pv, nst
+vcsmd.f90:     WRITE( iun_eal, 103 ) uta, eka, eta, utl, ekla, etl, nst
+vcsmd.f90:     WRITE( iun_ave, 104 ) avu, avk, nst
+vcsmd.f90:     WRITE( iun_p,   105 ) press, p, avp, nst
+vcsmd.f90:        WRITE( iun_avec, 103 ) &
+vcsmd.f90:     WRITE( iun_tv, 104 ) vcell, tnew, nst
+vcsmd.f90:     WRITE( stdout, * ) ' new lattice vectors (alat unit) :'
+vcsmd.f90:     WRITE( stdout, '(3F14.9)') ( ( at(i,k) , i = 1, 3 ) , k = 1, 3 )
+vcsmd.f90:     WRITE( stdout,'(A,F12.4,A)') '  new unit-cell volume =', omega, ' (a.u.)^3'
+vcsmd.f90:  WRITE( stdout, * ) ' new positions in cryst coord'
+vcsmd.f90:  WRITE( stdout,'(A3,3X,3F14.9)') ( atm(ityp(na)), tau(:,na), na = 1, nat )
+vcsmd.f90:  WRITE( stdout, * ) ' new positions in cart coord (alat unit)'
+vcsmd.f90:  WRITE( stdout,'(A3,3X,3F14.9)') ( atm(ityp(na)), tau(:,na), na = 1, nat )
+vcsmd.f90:  WRITE( stdout, '(/5X,"Ekin = ",F14.8," Ry    T = ",F6.1," K ", &
+vcsmd.f90:     WRITE( stdout, '(/,5X,"Constrained forces (Ry/au):",/)')
+vcsmd.f90:        WRITE( stdout, &
+vcsmd.f90:     WRITE( stdout, '(/5X,"Total force = ",F12.6)') DNRM2( 3*nat, force, 1 )
+vcsmd.f90:  WRITE(4,*) rati, ratd, rat2d, rat2di, tauold
+vcsmd.f90:  WRITE(4,*) aveci, avecd, avec2d, avec2di
+vcsmd.f90:  WRITE(4,*) avec0, sig0, v0, e_start, etot
+vcsmd.f90:  WRITE(4,*) acu, ack, acp, acpv, avu, avk, avp, avpv, sigmamet
+vcsmd.f90:  WRITE(4,*) istep, nzero, ntimes
+vcsmd.f90:  IF ( conv_ions ) WRITE( UNIT = stdout, FMT = '(/,5X,A,i4," iterations ", &
+vcsubs.f90:  !      WRITE( stdout,*) avec2d(2,1),avec2d(3,1), avec2d(3,2)
+vcsubs.f90:  !      WRITE( stdout,*) 'eka,ekint', eka, ekint
+vcsubs.f90:  !       WRITE( stdout,1001) ekint,ut,etot
+vcsubs.f90:     !         WRITE( stdout,109) alpha,nst
+vcsubs.f90:        !            WRITE( stdout,901)
+vcsubs.f90:        !            WRITE( stdout,*) 'vfac = ',vfac
+vcsubs.f90:           WRITE( stdout,*) 'natom=0 for type',nt,'in sub ranv (1) !!!! '
+vcsubs.f90:        !            WRITE( stdout,*) 'ekin(nt)',ekin(nt)
+vcsubs.f90:     !         WRITE( stdout,*) 'atemp = ',atemp,' k'
+vcsubs.f90:     !         WRITE( stdout,*) 'tfac = ',tfac
+v_of_rho.f90:    write (stdout, '(/,5x, "negative rho (up,down): ", 2es10.3)') rhoneg(:)
+v_of_rho.f90:     WRITE( stdout,'(/,5X,"negative rho (up, down): ",2ES10.3)') rhoneg
+v_of_rho.f90:      write(stdout,*) '--- in v_hubbard ---'
+v_of_rho.f90:      write(stdout,'(''Hubbard energy '',f9.4)') eth
+v_of_rho.f90:      write(stdout,*) '-------'
+v_of_rho.f90:      write(stdout,*) '--- in v_hubbard ---'
+v_of_rho.f90:      write(stdout,'(''Hubbard energies (dc, U, total) '',3f9.4)') eth_dc, eth_u, eth
+v_of_rho.f90:      write(stdout,*) '-------'
+v_of_rho.f90:    write(stdout,*) '--- in v_hubbard ---'
+v_of_rho.f90:    write(stdout,'(''Hub. E (dc, noflip, flip, total) '',4f9.4)') &
+v_of_rho.f90:    write(stdout,*) '-------'
+wannier_check.f90:  ! here we will write to stdout source of wannier functions (atomic functions from which wannier are generated) 
+wannier_check.f90:     write(stdout,'(5x,a4,i2)') 'Spin',ispin
+wannier_check.f90:        write(stdout,'(7x,"Wannier #",i3," centered on atom ",a3," (position ",3f8.5," )")') &
+wannier_check.f90:           write(stdout,'(9x,"Bands for generation: from",f6.3," to",f6.3)') &
+wannier_check.f90:           write(stdout,'(9x,"Bands for generation: from",i4," to",i4)') &
+wannier_check.f90:        write(stdout,'(9x,a31)') 'Trial wavefunction ingredients:'
+wannier_check.f90:           write(stdout,'(10x,f12.10," of l=",i1,", m=",i1)') &
+wannier_check.f90:  !   write(stdout,'(7x,"Wannier #",i3," atomic wavefunction", i3)') iwan, wan_in(iwan,1)%ing(1)%iatomwfc
+wannier_proj.f90:              ! write(stdout,'(5x,"nullify component for band",i3," of wannier",i3)') ibnd,iwan
+wannier_proj.f90:  !And write ortho-pp to file
+wfcinit.f90:     ! ... rewrite them (in pw_readfile) using the internal format
+wfcinit.f90:        WRITE( stdout, '(5X,"Cannot read wfc : file not found")' )
+wfcinit.f90:     WRITE( stdout, '(5X,"Starting wfc from file")' )
+wfcinit.f90:        WRITE( stdout, '(5X,"Starting wfc are ",I4," atomic wfcs")' ) natomwfc
+wfcinit.f90:        WRITE( stdout, '(5X,"Starting wfc are ",I4," atomic + ", &
+wfcinit.f90:        WRITE( stdout, '(5X,"Starting wfc are ",I4," randomized atomic wfcs")')&
+wfcinit.f90:        WRITE( stdout, '(5X,"Starting wfc are ",I4," randomized atomic wfcs + "&
+wfcinit.f90:     WRITE( stdout, '(5X,"Starting wfc are random")' )
+wfcinit.f90:  ! ... calculate and write all starting wavefunctions to file
+wfcinit.f90:     ! ... write  starting wavefunctions to file
+write_ns.f90:subroutine write_ns
+write_ns.f90:  WRITE (stdout,*) '--- enter write_ns ---'
+write_ns.f90:       call errore ('write_ns', 'ldmx is too small', 1)
+write_ns.f90:  write (stdout,*) 'LDA+U parameters:'
+write_ns.f90:          write (stdout,'(a,i2,a,f12.8)') 'U(',nt,')     =', Hubbard_U(nt)*rytoev 
+write_ns.f90:          write (stdout,'(a,i2,a,f12.8)') 'J0(',nt,')     =', Hubbard_J0(nt)*rytoev 
+write_ns.f90:          write (stdout,'(a,i2,a,f12.8)') 'alpha(',nt,') =', Hubbard_alpha(nt)*rytoev
+write_ns.f90:          write (stdout,'(a,i2,a,f12.8)') 'beta(',nt,') =', Hubbard_beta(nt)*rytoev
+write_ns.f90:          write (stdout,'(a,i2,a,f12.8)') 'U(',nt,')     =', Hubbard_U(nt)*rytoev
+write_ns.f90:          write (stdout,'(a,i2,a,f12.8)') 'alpha(',nt,') =', Hubbard_alpha(nt)*rytoev
+write_ns.f90:          write (stdout,'(a,i2,a,f12.8)') 'U(',nt,') =', Hubbard_U(nt) * rytoev
+write_ns.f90:         write (stdout,'(2(a,i3,a,f9.4,3x))') 'U(',nt,') =', Hubbard_U(nt)*rytoev,   &
+write_ns.f90:         write (stdout,'(3(a,i3,a,f9.4,3x))') 'U(',nt,') =', Hubbard_U(nt)*rytoev,   &
+write_ns.f90:         write (stdout,'(4(a,i3,a,f9.4,3x))') 'U (',nt,') =', Hubbard_U(nt)*rytoev,   &
+write_ns.f90:           WRITE( stdout,'("atom ",i4,3x,"Tr[ns(na)] = ",f9.5)') &
+write_ns.f90:           WRITE( stdout,'("atom ",i4,3x,"Tr[ns(na)] (up, down, total) = ",3f9.5)') &
+write_ns.f90:           if (nspin.ne.1) write( stdout,'("   spin ",i2)') is
+write_ns.f90:           WRITE( stdout,*) '   eigenvalues: '
+write_ns.f90:           WRITE( stdout,'(7f7.3)') (lambda(m1), m1=1, ldim)
+write_ns.f90:           WRITE( stdout,*) '   eigenvectors:'
+write_ns.f90:             WRITE( stdout,'(7f7.3)') ( REAL(vet(m1,m2))**2 + &
+write_ns.f90:           WRITE( stdout,*) '   occupations:'
+write_ns.f90:             WRITE( stdout,'(7f7.3)') ( DBLE(f(m1,m2)), m2=1, ldim )
+write_ns.f90:        if (nspin.ne.1) write(stdout,'(''atomic mag. moment = '',f12.6)') &
+write_ns.f90:  WRITE( stdout, '(a,1x,f11.6)') 'N of occupied +U levels =', nsum
+write_ns.f90:  WRITE( stdout,*) '--- exit write_ns ---'
+write_ns.f90:end subroutine write_ns
+write_ns.f90:subroutine write_ns_nc
+write_ns.f90:  WRITE (stdout,*) '--- enter write_ns ---'
+write_ns.f90:       call errore ('write_ns', 'ldmx is too small', 1)
+write_ns.f90:  write (stdout,*) 'LDA+U parameters:'
+write_ns.f90:        write (stdout,'(a,i2,a,f12.8)') 'U(',nt,') =', Hubbard_U(nt) * rytoev
+write_ns.f90:       write (stdout,'(2(a,i3,a,f9.4,3x))') 'U(',nt,') =', Hubbard_U(nt)*rytoev,   &
+write_ns.f90:       write (stdout,'(3(a,i3,a,f9.4,3x))') 'U(',nt,') =', Hubbard_U(nt)*rytoev,   &
+write_ns.f90:       write (stdout,'(4(a,i3,a,f9.4,3x))') 'U (',nt,') =', Hubbard_U(nt)*rytoev,   &
+write_ns.f90:        WRITE( stdout,'("atom ",i4,3x,"Tr[ns(na)] (up, down, total) = ",3f9.5)') &
+write_ns.f90:        WRITE( stdout,*) 'eigenvalues: '
+write_ns.f90:        WRITE( stdout,'(14f7.3)') (lambda(m1), m1=1, 2*ldim)
+write_ns.f90:        WRITE( stdout,*) 'eigenvectors:'
+write_ns.f90:          WRITE( stdout,'(14f7.3)') ( REAL(vet(m1,m2))**2 + &
+write_ns.f90:        WRITE( stdout,*) 'occupations, | n_(i1, i2)^(sigma1, sigma2) |:'
+write_ns.f90:          WRITE( stdout,'(14f7.3)') ( sqrt(REAL(f(m1,m2))**2+ &
+write_ns.f90:        write(stdout,'(''atomic mx, my, mz = '',3f12.6)') mx, my, mz
+write_ns.f90:  WRITE( stdout, '(a,1x,f11.6)') 'N of occupied +U levels =', nsum
+write_ns.f90:  WRITE( stdout,*) '--- exit write_ns ---'
+write_ns.f90:end subroutine write_ns_nc
+xdm_dispersion.f90:       WRITE (stdout,'(/"* XDM dispersion")')
+xdm_dispersion.f90:       WRITE (stdout,'("  a1 = ",F12.6)') a1
+xdm_dispersion.f90:       WRITE (stdout,'("  a2 (ang) = ",F12.6)') a2i
+xdm_dispersion.f90:       WRITE (stdout,'("  a2 (bohr) = ",F12.6)') a2
+xdm_dispersion.f90:          WRITE (stdout,*)
+xdm_dispersion.f90:          WRITE (stdout,'("+ Volumes and moments")')
+xdm_dispersion.f90:          WRITE (stdout,'("# All results in atomic units (Hartree,bohr)")')
+xdm_dispersion.f90:          WRITE (stdout,'("# i        V             Vfree           M1             M2             M3")')
+xdm_dispersion.f90:             WRITE (stdout,'(I3,1p,5(1X,E14.6))') iat, avol(iat), afree(it), ml(1:3,iat)
+xdm_dispersion.f90:          WRITE (stdout,*)
+xdm_dispersion.f90:          WRITE (stdout,'("+ Dispersion coefficients")')
+xdm_dispersion.f90:          WRITE (stdout,'("# All results in atomic units (Hartree,bohr).")')
+xdm_dispersion.f90:          WRITE (stdout,'("# i   j      C6             C8             C10            Rc            Rvdw")')
+xdm_dispersion.f90:             WRITE (stdout,'(I3,1X,I3,1p,5(1X,E14.6))') i, j, cx(i,j,2), cx(i,j,3), cx(i,j,4), rc, rvdw(i,j)
+xdm_dispersion.f90:       WRITE (stdout,*)
+xdm_dispersion.f90:       WRITE (stdout,'("+ van der Waals energies, forces and stresses (Ry,bohr)")')
+xdm_dispersion.f90:    ! set the atomic environment for the energy sum -> it would be nice to rewrite
+xdm_dispersion.f90:       WRITE (stdout,'("  Evdw(total,Ry)   = ",1p,E20.12)') evdw
+xdm_dispersion.f90:       WRITE (stdout,'("  Evdw(C6,Ry)      = ",1p,E20.12)') ehadd(6)
+xdm_dispersion.f90:       WRITE (stdout,'("  Evdw(C8,Ry)      = ",1p,E20.12)') ehadd(8)
+xdm_dispersion.f90:       WRITE (stdout,'("  Evdw(C10,Ry)     = ",1p,E20.12)') ehadd(10)
+xdm_dispersion.f90:          WRITE (stdout,'("  Fvdw (",I3.3,",Ry/bohr) = ",1p,3(E20.12,1X))') i, for(:,i)
+xdm_dispersion.f90:       WRITE (stdout,'("  sigma_vdw (Ry/bohr**3) = ",1p,3(E20.12,1X)," ")') sigma(1,:)
+xdm_dispersion.f90:       WRITE (stdout,'("                           ",1p,3(E20.12,1X)," ")') sigma(2,:)
+xdm_dispersion.f90:       WRITE (stdout,'("                           ",1p,3(E20.12,1X)," ")') sigma(3,:)
+xdm_dispersion.f90:       WRITE (stdout,'("  sigma_vdw (GPa) = ",1p,3(E20.12,1X)," ")') 0.5_DP*sigma(1,:)*au_gpa
+xdm_dispersion.f90:       WRITE (stdout,'("                    ",1p,3(E20.12,1X)," ")') 0.5_DP*sigma(2,:)*au_gpa
+xdm_dispersion.f90:       WRITE (stdout,'("                    ",1p,3(E20.12,1X)," ")') 0.5_DP*sigma(3,:)*au_gpa
+xdm_dispersion.f90:       WRITE (stdout,*)

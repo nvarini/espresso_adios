@@ -1,0 +1,53 @@
+adios_groupsize = 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 4 * (nks) &
+                + 16 * (lda) * (m) &
+                + 16 * (lda) * (m) &
+                + 16 * (dfftp%nnr) &
+                + 8 * (dffts%nnr) &
+                + 4 * (ngms) &
+                + 4 * (npwx)
+call adios_group_size (adios_handle, adios_groupsize, adios_totalsize, adios_err)
+call adios_write (adios_handle, "lda", lda, adios_err)
+call adios_write (adios_handle, "lda_global", lda_global, adios_err)
+call adios_write (adios_handle, "rank", rank, adios_err)
+call adios_write (adios_handle, "offx_lda", offx_lda, adios_err)
+call adios_write (adios_handle, "offx_dfftp", offx_dfftp, adios_err)
+call adios_write (adios_handle, "offx_dffts", offx_dffts, adios_err)
+call adios_write (adios_handle, "offx_ngms", offx_ngms, adios_err)
+call adios_write (adios_handle, "offx_npwx", offx_npwx, adios_err)
+call adios_write (adios_handle, "m", m, adios_err)
+call adios_write (adios_handle, "n", n, adios_err)
+call adios_write (adios_handle, "ngms", ngms, adios_err)
+call adios_write (adios_handle, "ngms_global", ngms_global, adios_err)
+call adios_write (adios_handle, "npwx", npwx, adios_err)
+call adios_write (adios_handle, "npwx_global", npwx_global, adios_err)
+call adios_write (adios_handle, "dfftp%nnr", dfftp%nnr, adios_err)
+call adios_write (adios_handle, "dfftp_global", dfftp_global, adios_err)
+call adios_write (adios_handle, "dffts%nnr", dffts%nnr, adios_err)
+call adios_write (adios_handle, "dffts_global", dffts_global, adios_err)
+call adios_write (adios_handle, "nks", nks, adios_err)
+call adios_write (adios_handle, "ngk", ngk, adios_err)
+call adios_write (adios_handle, "psi", psi, adios_err)
+call adios_write (adios_handle, "hpsi", hpsi, adios_err)
+call adios_write (adios_handle, "psic", psic, adios_err)
+call adios_write (adios_handle, "v", v, adios_err)
+call adios_write (adios_handle, "nls", nls, adios_err)
+call adios_write (adios_handle, "igk", igk, adios_err)

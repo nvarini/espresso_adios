@@ -1,0 +1,11 @@
+adios_groupsize = 4 &
+                + 4 &
+                + 4 &
+                + 4 &
+                + 16 * (npwx) * (nbnd)
+call adios_group_size (adios_handle, adios_groupsize, adios_totalsize, adios_err)
+call adios_write (adios_handle, "npwx", npwx, adios_err)
+call adios_write (adios_handle, "npw_g", npw_g, adios_err)
+call adios_write (adios_handle, "off_npw", off_npw, adios_err)
+call adios_write (adios_handle, "nbnd", nbnd, adios_err)
+call adios_write (adios_handle, "evcold", evcold, adios_err)

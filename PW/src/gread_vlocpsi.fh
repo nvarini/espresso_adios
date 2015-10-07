@@ -1,0 +1,11 @@
+call adios_selection_writeblock (s, rank)
+call adios_schedule_read (fp, s, "ngk", 0, 1, ngk, adios_err)
+call adios_schedule_read (fp, s, "psi", 0, 1, psi, adios_err)
+call adios_schedule_read (fp, s, "hpsi", 0, 1, hpsi, adios_err)
+call adios_schedule_read (fp, s, "psic", 0, 1, psic, adios_err)
+call adios_schedule_read (fp, s, "v", 0, 1, v, adios_err)
+call adios_schedule_read (fp, s, "nls", 0, 1, nls, adios_err)
+call adios_schedule_read (fp, s, "igk", 0, 1, igk, adios_err)
+
+call adios_perform_reads (fp, adios_err)
+call adios_selection_delete (s)
