@@ -513,7 +513,10 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
 
   IF ( wfc_extr == 1 ) THEN
      !
+#if !defined __ADIOS
      CALL diropn( iunoldwfc, 'oldwfc', 2*nwordwfc, exst )
+#endif
+
      !
      DO ik = 1, nks
         !
@@ -528,13 +531,17 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
         !
      END DO
      !
+#if !defined (__ADIOS)
      CLOSE( UNIT = iunoldwfc, STATUS = 'KEEP' )
+#endif
      !
   ELSE 
      !
+#if !defined (__ADIOS)
      CALL diropn( iunoldwfc, 'oldwfc', 2*nwordwfc, exst )
      IF ( wfc_extr > 2 .OR. wfc_order > 2 ) &
         CALL diropn( iunoldwfc2, 'old2wfc', 2*nwordwfc, exst )
+#endif
      !
      IF ( wfc_extr == 2 ) THEN
         !
