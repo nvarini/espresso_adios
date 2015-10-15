@@ -473,8 +473,9 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
 #if defined __ADIOS
   USE adios_qe
   USE adios_pw
-  !USE adios_write_mod
-  !USE adios_read_mod
+  USE mp_pools,  ONLY : kunit, npool, my_pool_id, intra_pool_comm
+  USE klist,     ONLY : nkstot
+
 #endif
   !
   IMPLICIT NONE
@@ -500,6 +501,7 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
     ! real version of sp_m
   LOGICAL :: exst
 #if defined __ADIOS 
+  integer ik_adios
 #endif
 
   !
@@ -522,9 +524,11 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
         !
         ! ... "now"  -> "old"
         !
+
         IF ( nks > 1 ) CALL get_buffer( evc, nwordwfc, iunwfc, ik )
 #if defined __ADIOS
-        CALL write_adios_evc(ik,adios_handle,"wfc",filename_old,adios_comm,adios_mode)
+        ik_adios=nks*my_pool_id+ik
+        CALL write_adios_evc(ik_adios,adios_handle,"wfc",filename_old,intra_pool_comm,adios_mode)
 #else
         CALL davcio( evc, 2*nwordwfc, iunoldwfc, ik, +1 )
 #endif
@@ -586,16 +590,19 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
         ! ... read wavefcts as (t-dt), replace with wavefcts at (t)
         !
 #if defined __ADIOS
-      CALL adios_read_array(ik,f,filename_old,adios_comm,"evc",evcold,adios_mode)
+      ik_adios=nks*my_pool_id
+      CALL adios_read_array(ik_adios,f,filename_old,adios_comm,"evc",evcold,adios_mode)
 #else
     CALL davcio( evcold, 2*nwordwfc, iunoldwfc, ik, -1 )
 #endif
         IF ( nks > 1 ) CALL get_buffer( evc, nwordwfc, iunwfc, ik )
-#if defined __ADIOS
+#if defined __ADIOS 
+
+        ik_adios=nks*my_pool_id
         IF(adios_mode.eq.1)THEN
-          CALL write_adios_evcold(ik,adios_handle,"oldwfc",filename_old3,adios_comm,evcold,adios_mode)
+          CALL write_adios_evcold(ik_adios,adios_handle,"oldwfc",filename_old3,adios_comm,evcold,adios_mode)
         ELSE
-          CALL write_adios_evc(ik,adios_handle,"wfc",filename_old,adios_comm,adios_mode)
+          CALL write_adios_evc(ik_adios,adios_handle,"wfc",filename_old,adios_comm,adios_mode)
         ENDIF
 #else
         CALL davcio(    evc, 2*nwordwfc, iunoldwfc, ik, +1 )
@@ -680,10 +687,11 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
            !
            IF ( wfc_extr == 3 ) THEN
 #if defined __ADIOS
+             ik_adios=nks*my_pool_id
              IF(adios_mode.eq.1)THEN
-               CALL adios_read_array(ik,f,filename_old2,adios_comm,"evcold",evcold,adios_mode)
+               CALL adios_read_array(ik_adios,f,filename_old2,adios_comm,"evcold",evcold,adios_mode)
              ELSE
-               CALL adios_read_array(ik,f,filename_old2,adios_comm,"aux",evcold,adios_mode)
+               CALL adios_read_array(ik_adios,f,filename_old2,adios_comm,"aux",evcold,adios_mode)
              ENDIF
 #else
              CALL davcio( evcold, 2*nwordwfc, iunoldwfc2, ik, -1 )
@@ -692,10 +700,11 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
 
            !
 #if defined __ADIOS
+        ik_adios=nks*my_pool_id
         IF(adios_mode.eq.1)THEN
-          CALL write_adios_aux(ik,adios_handle,"oldwfc2",filename_old4,adios_comm,evcold,adios_mode)
+          CALL write_adios_aux(ik_adios,adios_handle,"oldwfc2",filename_old4,adios_comm,evcold,adios_mode)
         ELSE
-          CALL write_adios_aux(ik,adios_handle,"oldwfc2",filename_old2,adios_comm,aux,adios_mode)
+          CALL write_adios_aux(ik_adios,adios_handle,"oldwfc2",filename_old2,adios_comm,aux,adios_mode)
         ENDIF
 #else
         CALL davcio(    aux, 2*nwordwfc, iunoldwfc2, ik, +1 )
@@ -722,10 +731,11 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
 #IF DEFINED(__ADIOS)
     IF(adios_mode.eq.1) THEN
       DO ik=1, nks
-        CALL adios_read_array(ik,f,filename_old3,adios_comm,"evcold",evc,adios_mode)
-        CALL write_adios_evc(ik,adios_handle,"wfc",filename_old,adios_comm,adios_mode)
-        CALL adios_read_array(ik,f,filename_old4,adios_comm,"aux",aux,adios_mode)
-        CALL write_adios_evcold(ik,adios_handle,"oldwfc",filename_old2,adios_comm,evcold,adios_mode)
+        ik_adios=nks*my_pool_id
+        CALL adios_read_array(ik_adios,f,filename_old3,adios_comm,"evcold",evc,adios_mode)
+        CALL write_adios_evc(ik_adios,adios_handle,"wfc",filename_old,adios_comm,adios_mode)
+        CALL adios_read_array(ik_adios,f,filename_old4,adios_comm,"aux",aux,adios_mode)
+        CALL write_adios_evcold(ik_adios,adios_handle,"oldwfc",filename_old2,adios_comm,evcold,adios_mode)
       ENDDO
     ENDIF
 #ENDIF
@@ -739,9 +749,11 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
      DEALLOCATE( work, rwork )
      CALL deallocate_bec_type ( becp ) 
      !
+#if !defined(__ADIOS)
      CLOSE( UNIT = iunoldwfc, STATUS = 'KEEP' )
      IF ( wfc_extr > 2 .OR. wfc_order > 2 ) &
         CLOSE( UNIT = iunoldwfc2, STATUS = 'KEEP' )
+#endif
      !
   END IF
   !
