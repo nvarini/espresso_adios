@@ -44,6 +44,7 @@ MODULE adios_qe
  INTEGER, INTENT(IN) :: comm, method
  INTEGER :: adios_err 
  
+ write(*,*) 'BBBBBBB initialize'
  CALL adios_init("/home/nvarini/Dragoni_IO/espresso/PW/src/pwdesc.xml",comm,adios_err)
  CALL adios_read_init_method (method, comm, "verbose=3", adios_err);
  

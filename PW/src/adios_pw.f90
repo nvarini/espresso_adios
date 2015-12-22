@@ -10,6 +10,7 @@ MODULE adios_pw
  character(len=25)  :: filename_old2 = "oldwfc2"
  character(len=25)  :: filename_old3 = "oldwfc3"
  character(len=25)  :: filename_old4 = "oldwfc4"
+ character(len=25)  :: filename_buffer = "buffer"
 
 
 
@@ -116,6 +117,29 @@ MODULE adios_pw
 
  END SUBROUTINE write_adios_aux
 
+ SUBROUTINE write_adios_buffer(handle,group_name,filename,comm,buffer)
+ USE noncollin_module, ONLY : npol 
+ USE mp_world, ONLY : mpime
+ 
+
+ IMPLICIT NONE
+ INTEGER, INTENT(IN) ::  comm
+ INTEGER*8, INTENT(INOUT) :: handle
+ CHARACTER(len=*), INTENT(IN) :: group_name, filename
+ CHARACTER(len=256) :: filename_ik
+ INTEGER :: adios_err
+ COMPLEX(DP), INTENT(IN) :: buffer(:)
+ INTEGER nword
+ nword = size(buffer)
+
+
+   call adios_open (handle, group_name, filename, "w", comm, adios_err)
+   include "gwrite_buffers.fh"
+ call adios_close (adios_handle, adios_err)
+
+ END SUBROUTINE write_adios_buffer
+
+
 
  !read the variable var from filname and store it into array
  SUBROUTINE adios_read_array(ik,fh, filename, comm, var,array,mode)
@@ -149,6 +173,21 @@ MODULE adios_pw
 
  END SUBROUTINE adios_read_array
 
+ SUBROUTINE adios_read_buffer(fh, filename, comm, var,buffer)
+
+   IMPLICIT NONE
+   INTEGER, INTENT(in) ::  comm
+   INTEGER*8, INTENT(INOUT) :: fh
+   CHARACTER(LEN=*), INTENT(in) :: filename, var
+   COMPLEX(DP), INTENT(INOUT) :: buffer(:)
+   INTEGER :: ierr
+
+   CALL adios_read_open_file(fh, filename, method, comm, ierr);
+   CALL adios_schedule_read(fh, sel, var, 0, 1, buffer, ierr)
+   CALL adios_perform_reads (fh, ierr)
+   CALL adios_read_close (fh, ierr)
+
+ END SUBROUTINE adios_read_buffer
 
 
 

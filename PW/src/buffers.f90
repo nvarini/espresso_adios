@@ -467,6 +467,7 @@ contains
     !   on output, optional variable exst_file=T(F) if file is present (absent)
     !
     USE io_files,  ONLY : diropn, wfc_dir
+
     !
     IMPLICIT NONE
     !
@@ -491,7 +492,7 @@ contains
     ELSE
        save_dir=TRIM(wfc_dir)
     ENDIF
-    CALL diropn ( unit, extension, 2*nword, exst, save_dir )      
+    !CALL diropn ( unit, extension, 2*nword, exst, save_dir )      
     IF (present(exst_file)) exst_file=exst
     nunits = nunits + 1
     !
@@ -516,11 +517,17 @@ contains
     ! ... allocated buffer / opened direct-access file, depending upon
     ! ... how "open_buffer" was called
     !
+#if defined __ADIOS
+  USE adios_qe, ONLY : adios_comm, adios_handle
+  USE adios_pw, ONLY : write_adios_buffer, filename_buffer
+#endif
+
     IMPLICIT NONE
     !
     INTEGER, INTENT(IN) :: nword, unit, nrec
     COMPLEX(DP), INTENT(IN) :: vect(nword)
     INTEGER :: ierr
+    Character str
     !
     ierr = buiol_check_unit (unit)
     IF( ierr > 0 ) THEN
@@ -531,7 +538,14 @@ contains
        print *, 'save_buffer: record', nrec, ' written to unit', unit
 #endif
     ELSE 
+
+#if defined __ADIOS 
+    Write( str, '(i10)' ) unit
+    filename_buffer = filename_buffer // trim(str)
+    CALL write_adios_buffer(adios_handle,"buffer",filename_buffer,adios_comm,vect)
+#else
        CALL davcio ( vect, 2*nword, unit, nrec, +1 )
+#endif
     END IF
     !
   END SUBROUTINE save_buffer
@@ -544,11 +558,17 @@ contains
     ! ... allocated buffer / opened direct-access file, depending upon
     ! ... how "open_buffer" was called
     !
+#if defined __ADIOS
+  USE adios_qe, ONLY : adios_comm, adios_handle
+  USE adios_pw, ONLY : adios_read_buffer, filename_buffer
+#endif
+
     IMPLICIT NONE
     !
     INTEGER, INTENT(IN) :: nword, unit, nrec
     COMPLEX(DP), INTENT(OUT) :: vect(nword)
     INTEGER :: ierr
+    CHARACTER :: str         
     !
     ierr = buiol_check_unit (unit)
     IF( ierr > 0 ) THEN
@@ -558,7 +578,14 @@ contains
 #endif
        if ( ierr < 0 ) then
           ! record not found: read from file ....
+#ifdef __ADIOS
+
+          Write( str, '(i10)' ) unit
+          filename_buffer = filename_buffer // trim(str)
+          CALL adios_read_buffer(adios_handle,filename_buffer,adios_comm,"buffer",vect)
+#else
           CALL davcio ( vect, 2*nword, unit, nrec, -1 )
+#endif
           ! ... and save to memory
           ierr =  buiol_write_record ( unit, nword, nrec, vect )
           if ( ierr /= 0 ) CALL errore ('get_buffer', &
@@ -571,7 +598,15 @@ contains
        print *, 'get_buffer: record', nrec, ' read from unit', unit
 #endif
     ELSE
-       CALL davcio ( vect, 2*nword, unit, nrec, -1 )
+#ifdef __ADIOS
+
+          Write( str, '(i10)' ) unit
+          filename_buffer = filename_buffer // trim(str)
+          CALL adios_read_buffer(adios_handle,filename_buffer,adios_comm,"buffer",vect)
+#else
+          CALL davcio ( vect, 2*nword, unit, nrec, -1 )
+#endif
+
     END IF
     !
   END SUBROUTINE get_buffer

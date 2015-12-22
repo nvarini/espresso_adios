@@ -30,6 +30,10 @@ SUBROUTINE init_run()
   USE esm,                ONLY : do_comp_esm, esm_init
   USE mp_bands,           ONLY : intra_bgrp_comm
   USE tsvdw_module,       ONLY : tsvdw_initialize
+#if defined __ADIOS
+  USE adios_qe
+  USE adios_pw
+#endif
   !
   IMPLICIT NONE
   !
@@ -42,6 +46,9 @@ SUBROUTINE init_run()
   !
   ! ... allocate memory for G- and R-space fft arrays
   !
+#ifdef __ADIOS
+  CALL initialize_adios_qe(adios_comm, method)
+#endif
   CALL allocate_fft()
   !
   IF ( dft_is_hybrid() .AND. dffts%have_task_groups ) &

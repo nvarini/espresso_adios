@@ -46,6 +46,15 @@
     <buffer size-MB="20" allocate-time="now"/>
 
 
+    <adios-group name="buffers">
+        <var name="nword" path="" type="integer"/>
+        <var name="buffer"  gwrite="buffer"  type="double complex"  dimensions="nword"/>
+   </adios-group>
+
+    <method group="buffers"  method="MPI"/>
+
+    <buffer size-MB="20" allocate-time="now"/>
+
 
 
 </adios-config>

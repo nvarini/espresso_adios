@@ -36,6 +36,12 @@ SUBROUTINE run_pwscf ( exit_status )
   USE mp_images,        ONLY : intra_image_comm
   USE qmmm,             ONLY : qmmm_initialization, qmmm_shutdown, &
                                qmmm_update_positions, qmmm_update_forces
+#ifdef __ADIOS
+  USE adios_qe,             ONLY : rank_adios
+  USE adios_pw,             ONLY : adios_err
+  USE adios_read_mod
+#endif
+
   !
   IMPLICIT NONE
   INTEGER, INTENT(OUT) :: exit_status
@@ -166,6 +172,12 @@ SUBROUTINE run_pwscf ( exit_status )
   CALL punch('all')
   !
   CALL qmmm_shutdown()
+#ifdef __ADIOS
+  write(*,*) 'CCCCCC'
+  CALL adios_read_finalize_method (ADIOS_READ_METHOD_BP, adios_err)
+  CALL adios_finalize (rank_adios, adios_err)
+#endif
+
   !
   IF ( .NOT. conv_ions )  exit_status =  3
   RETURN

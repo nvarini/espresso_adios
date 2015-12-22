@@ -508,11 +508,12 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
   CALL mp_barrier( intra_image_comm ) ! debug
   !
 #if defined __ADIOS 
-  CALL initialize_adios_qe(adios_comm, method)
+  !CALL initialize_adios_qe(adios_comm, method)
   CALL prepare_index_adios(npwx,off_npw,npw_g,adios_comm,size_adios)
   CALL prepare_selection_adios(npwx,nbnd,off_npw,0)
 #endif
 
+     write(*,*) 'AAAAAAAA', wfc_extr
   IF ( wfc_extr == 1 ) THEN
      !
 #if !defined __ADIOS
@@ -527,7 +528,8 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
 
         IF ( nks > 1 ) CALL get_buffer( evc, nwordwfc, iunwfc, ik )
 #if defined __ADIOS
-        ik_adios=nks*my_pool_id+ik
+        !ik_adios=nks*my_pool_id+ik
+        ik_adios=ik
         CALL write_adios_evc(ik_adios,adios_handle,"wfc",filename_old,intra_pool_comm,adios_mode)
 #else
         CALL davcio( evc, 2*nwordwfc, iunoldwfc, ik, +1 )
@@ -590,7 +592,8 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
         ! ... read wavefcts as (t-dt), replace with wavefcts at (t)
         !
 #if defined __ADIOS
-      ik_adios=nks*my_pool_id
+      !ik_adios=nks*my_pool_id
+      ik_adios=ik
       CALL adios_read_array(ik_adios,f,filename_old,adios_comm,"evc",evcold,adios_mode)
 #else
     CALL davcio( evcold, 2*nwordwfc, iunoldwfc, ik, -1 )
@@ -598,7 +601,8 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
         IF ( nks > 1 ) CALL get_buffer( evc, nwordwfc, iunwfc, ik )
 #if defined __ADIOS 
 
-        ik_adios=nks*my_pool_id
+        !ik_adios=nks*my_pool_id
+        ik_adios=ik
         IF(adios_mode.eq.1)THEN
           CALL write_adios_evcold(ik_adios,adios_handle,"oldwfc",filename_old3,adios_comm,evcold,adios_mode)
         ELSE
@@ -687,7 +691,8 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
            !
            IF ( wfc_extr == 3 ) THEN
 #if defined __ADIOS
-             ik_adios=nks*my_pool_id
+             !ik_adios=nks*my_pool_id
+             ik_adios=ik
              IF(adios_mode.eq.1)THEN
                CALL adios_read_array(ik_adios,f,filename_old2,adios_comm,"evcold",evcold,adios_mode)
              ELSE
@@ -700,7 +705,8 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
 
            !
 #if defined __ADIOS
-        ik_adios=nks*my_pool_id
+        !ik_adios=nks*my_pool_id
+        ik_adios=ik
         IF(adios_mode.eq.1)THEN
           CALL write_adios_aux(ik_adios,adios_handle,"oldwfc2",filename_old4,adios_comm,evcold,adios_mode)
         ELSE
@@ -731,7 +737,8 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
 #IF DEFINED(__ADIOS)
     IF(adios_mode.eq.1) THEN
       DO ik=1, nks
-        ik_adios=nks*my_pool_id
+        !ik_adios=nks*my_pool_id
+        ik_adios=ik
         CALL adios_read_array(ik_adios,f,filename_old3,adios_comm,"evcold",evc,adios_mode)
         CALL write_adios_evc(ik_adios,adios_handle,"wfc",filename_old,adios_comm,adios_mode)
         CALL adios_read_array(ik_adios,f,filename_old4,adios_comm,"aux",aux,adios_mode)
@@ -759,8 +766,8 @@ SUBROUTINE extrapolate_wfcs( wfc_extr )
   !
 #if defined(__ADIOS)
   CALL adios_selection_delete (sel)
-  CALL adios_read_finalize_method (ADIOS_READ_METHOD_BP, adios_err)
-  CALL adios_finalize (rank_adios, adios_err)
+  !CALL adios_read_finalize_method (ADIOS_READ_METHOD_BP, adios_err)
+  !CALL adios_finalize (rank_adios, adios_err)
 #endif
   CALL mp_barrier( intra_image_comm ) ! debug
   !
